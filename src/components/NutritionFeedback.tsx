@@ -94,11 +94,11 @@ const NutritionFeedback = () => {
         <path 
             d="M200,200 L200,0 A200,200 0 0,0 0,200 Z" 
             fill={plateData.vegetables.color}
-            className="transition-all hover:opacity-60 hover:scale-105"
+            className="transition-all hover:opacity-60"
         />
         <foreignObject x="40" y="35" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center relative">
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-full h-full flex items-center justify-center">
+            <div className="flex flex-col items-center">
                 <div className="w-32 h-32 relative">
                 <Image
                     src={plateData.vegetables.icon}
