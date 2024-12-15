@@ -273,8 +273,8 @@ const NutritionFeedback = () => {
           </h2>
           <p className="mb-4 text-gray-900">You indicated your goals were to <strong>reduce added sugar</strong>, <strong>reduce sodium</strong>, and <strong>increase vegetable intake</strong>.</p>
           <ul className="space-y-2 text-gray-900">
-            <li>• You've made great strides in increasing your vegetable intake with smart choices like <strong>Spinach</strong> and <strong>Broccoli</strong>.</li>
-            <li>• However, items like <strong>Butter</strong> and <strong>Cheese</strong> didn't support your goal of reducing saturated fat levels.</li>
+            <li>• You have made great strides in increasing your vegetable intake with smart choices like <strong>Spinach</strong> and <strong>Broccoli</strong>.</li>
+            <li>• However, items like <strong>Butter</strong> and <strong>Cheese</strong> did not support your goal of reducing saturated fat levels.</li>
           </ul>
         </div>
 
