@@ -15,7 +15,7 @@ const openSans = Open_Sans({
 
 const NutritionFeedback = () => {
   const [selectedSection, setSelectedSection] = useState('');
-  const scrollContainerRef = useRef(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   
   const plateData = {
     vegetables: {
@@ -70,7 +70,7 @@ const NutritionFeedback = () => {
     progress: '#3E85C6'
   };
 
-  const handleScroll = (e) => {
+  const handleScroll = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.style.scrollBehavior = 'smooth';
     }
@@ -239,7 +239,13 @@ const NutritionFeedback = () => {
       >
         {/* Logo & Title Section */}
         <div className="white p-4 rounded-lg mb-6">
-          <img src="/FINs.png" alt="Food Logo" className="h-8" />
+          <Image 
+            src="/FINs.png" 
+            alt="Food Logo" 
+            width={32} 
+            height={32} 
+            className="h-8 w-auto"
+          />
           <h1 className={`${bungee.className} text-2xl text-center mt-2`} 
               style={{ color: headingColors.title }}>
             Grocery Feedback
@@ -330,13 +336,17 @@ const NutritionFeedback = () => {
           </h2>
           <div className="p-4 bg-white rounded-lg">
             <div className="mb-4">
-                <img 
-                    src="/progress.png" 
-                    alt="Progress Graph" 
-                    className="w-full rounded-lg"
-                />
+              <Image 
+                src="/progress.png" 
+                alt="Progress Graph" 
+                width={400}
+                height={200}
+                className="w-full rounded-lg"
+              />
             </div>
-            <p className="text-gray-900 font-bold text-center">Week 3: Congrats! Your HEI Score has increased from last week</p>
+            <p className="text-gray-900 font-bold text-center">
+              Week 3: Congrats! Your HEI Score has increased from last week
+            </p>
           </div>
         </div>
 
