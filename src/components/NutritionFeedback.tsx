@@ -85,136 +85,155 @@ const NutritionFeedback = () => {
   };
 
 
-  const MyPlateSVG = () => (
-    <div className="relative w-full max-w-md mx-auto">
-      <svg viewBox="0 0 500 400" className="w-full h-auto max-w-sm mx-auto">
-
-        {/* Vegetables (top-left) */}
-        <g onClick={() => handleSectionClick('vegetables')} className="cursor-pointer">
-        <path 
-            d="M200,200 L200,0 A200,200 0 0,0 0,200 Z" 
-            fill={plateData.vegetables.color}
-            className="transition-all hover:opacity-60"
-        />
-        <foreignObject x="40" y="35" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center">
-            <div className="flex flex-col items-center">
-                <div className="w-32 h-32 relative">
-                <Image
-                    src={plateData.vegetables.icon}
-                    alt="vegetables"
-                    width={128}
-                    height={128}
-                    className="object-contain"
-                />
-                </div>
-            </div>
-            </div>
-        </foreignObject>
-        </g>
-
+  const MyPlateSVG = () => {
+    // Calculate the exact centers of each quadrant
+    const radius = 200;
+    const centerX = 200;
+    const centerY = 200;
+    const quadrantRadius = radius * 0.6; // (radius * Math.cos(45°)) for quadrant centers
+    
+    // Calculate exact center points for each section
+    const centerPoints = {
+      vegetables: {
+        x: centerX - quadrantRadius * 0.7,  // top-left
+        y: centerY - quadrantRadius * 0.7
+      },
+      fruits: {
+        x: centerX + quadrantRadius * 0.7,  // top-right
+        y: centerY - quadrantRadius * 0.7
+      },
+      protein: {
+        x: centerX - quadrantRadius * 0.7,  // bottom-left
+        y: centerY + quadrantRadius * 0.7
+      },
+      grains: {
+        x: centerX + quadrantRadius * 0.7,  // bottom-right
+        y: centerY + quadrantRadius * 0.7
+      }
+    };
   
-        {/* Fruits (top-right) */}
-        <g onClick={() => handleSectionClick('fruits')} className="cursor-pointer">
-        <path 
-            d="M200,200 L400,200 A200,200 0 0,0 200,0 Z" 
-            fill={plateData.fruits.color}
-            className="transition-all hover:opacity-60"
-        />
-        <foreignObject x="200" y="35" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 relative">
-                <Image
-                    src={plateData.fruits.icon}
-                    alt="fruits"
-                    width={128}
-                    height={128}
-                    className="object-contain"
-                />
-                </div>
-            </div>
-            </div>
-        </foreignObject>
-        </g>
-
+    const iconSize = 110; // Size of the icons
+    const halfIconSize = iconSize / 2;
   
-        {/* Protein (bottom-left) */}
-        <g onClick={() => handleSectionClick('protein')} className="cursor-pointer">
-        <path 
-            d="M200,200 L0,200 A200,200 0 0,0 200,400 Z" 
-            fill={plateData.protein.color}
-            className="transition-all hover:opacity-60"
-        />
-        <foreignObject x="40" y="200" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 relative">
-                <Image
-                    src={plateData.protein.icon}
-                    alt="protein"
-                    width={128}
-                    height={128}
-                    className="object-contain"
-                />
-                </div>
-            </div>
-            </div>
-        </foreignObject>
-        </g>
-
+    return (
+      <div className="relative w-full max-w-md mx-auto">
+        <svg viewBox="0 0 500 400" className="w-full h-auto max-w-sm mx-auto">
+          {/* Base plate circle */}
+          <circle 
+            cx={centerX} 
+            cy={centerY} 
+            r={radius} 
+            fill="none" 
+            stroke="transparent" 
+          />
   
-        {/* Grains (bottom-right) */}
-        <g onClick={() => handleSectionClick('grains')} className="cursor-pointer">
-        <path 
-            d="M200,200 L200,400 A200,200 0 0,0 400,200 Z" 
-            fill={plateData.grains.color}
-            className="transition-all hover:opacity-60"
-        />
-        <foreignObject x="200" y="200" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 relative">
-                <Image
-                    src={plateData.grains.icon}
-                    alt="grains"
-                    width={128}
-                    height={128}
-                    className="object-contain"
-                />
-                </div>
-            </div>
-            </div>
-        </foreignObject>
-        </g>
-
+          {/* Vegetables (top-left) */}
+          <g onClick={() => handleSectionClick('vegetables')} className="cursor-pointer">
+            <path 
+              d="M200,200 L200,0 A200,200 0 0,0 0,200 Z" 
+              fill={plateData.vegetables.color}
+              className="transition-all hover:opacity-60"
+            />
+            <svg 
+              x={centerPoints.vegetables.x - halfIconSize} 
+              y={centerPoints.vegetables.y - halfIconSize} 
+              width={iconSize} 
+              height={iconSize}
+            >
+              <image
+                href={plateData.vegetables.icon}
+                width={iconSize}
+                height={iconSize}
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+          </g>
   
-        {/* Dairy circle */}
-        <g onClick={() => handleSectionClick('dairy')} className="cursor-pointer">
-        <circle 
-            cx="430" 
-            cy="100" 
-            r="50" 
-            fill={plateData.dairy.color}
-            className="transition-opacity hover:opacity-80"
-        />
-        <foreignObject x="380" y="50" width="100" height="100">
-            <div className="w-full h-full flex items-center justify-center relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 relative">
-                <Image
-                    src={plateData.dairy.icon}
-                    alt="dairy"
-                    fill
-                    className="object-contain"
-                />
-                </div>
-            </div>
-            </div>
-        </foreignObject>
-        </g>
-
-      </svg>
+          {/* Fruits (top-right) */}
+          <g onClick={() => handleSectionClick('fruits')} className="cursor-pointer">
+            <path 
+              d="M200,200 L400,200 A200,200 0 0,0 200,0 Z" 
+              fill={plateData.fruits.color}
+              className="transition-all hover:opacity-60"
+            />
+            <svg 
+              x={centerPoints.fruits.x - halfIconSize} 
+              y={centerPoints.fruits.y - halfIconSize} 
+              width={iconSize} 
+              height={iconSize}
+            >
+              <image
+                href={plateData.fruits.icon}
+                width={iconSize}
+                height={iconSize}
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+          </g>
+  
+          {/* Protein (bottom-left) */}
+          <g onClick={() => handleSectionClick('protein')} className="cursor-pointer">
+            <path 
+              d="M200,200 L0,200 A200,200 0 0,0 200,400 Z" 
+              fill={plateData.protein.color}
+              className="transition-all hover:opacity-60"
+            />
+            <svg 
+              x={centerPoints.protein.x - halfIconSize} 
+              y={centerPoints.protein.y - halfIconSize} 
+              width={iconSize} 
+              height={iconSize}
+            >
+              <image
+                href={plateData.protein.icon}
+                width={iconSize}
+                height={iconSize}
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+          </g>
+  
+          {/* Grains (bottom-right) */}
+          <g onClick={() => handleSectionClick('grains')} className="cursor-pointer">
+            <path 
+              d="M200,200 L200,400 A200,200 0 0,0 400,200 Z" 
+              fill={plateData.grains.color}
+              className="transition-all hover:opacity-60"
+            />
+            <svg 
+              x={centerPoints.grains.x - halfIconSize} 
+              y={centerPoints.grains.y - halfIconSize} 
+              width={iconSize} 
+              height={iconSize}
+            >
+              <image
+                href={plateData.grains.icon}
+                width={iconSize}
+                height={iconSize}
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+          </g>
+  
+          {/* Dairy circle */}
+          <g onClick={() => handleSectionClick('dairy')} className="cursor-pointer">
+            <circle 
+              cx="430" 
+              cy="100" 
+              r="50" 
+              fill={plateData.dairy.color}
+              className="transition-opacity hover:opacity-80"
+            />
+            <svg x="400" y="70" width="60" height="60">
+              <image
+                href={plateData.dairy.icon}
+                width="60"
+                height="60"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+          </g>
+        </svg>
   
       {/* Selected Section Details */}
       {selectedSection && (
@@ -246,6 +265,7 @@ const NutritionFeedback = () => {
       )}
     </div>
   );
+};
   
   
   
