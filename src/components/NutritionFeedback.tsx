@@ -1,7 +1,6 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-
 import React, { useState, useRef } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
@@ -92,120 +91,129 @@ const NutritionFeedback = () => {
 
         {/* Vegetables (top-left) */}
         <g onClick={() => handleSectionClick('vegetables')} className="cursor-pointer">
-          <path 
+        <path 
             d="M200,200 L200,0 A200,200 0 0,0 0,200 Z" 
             fill={plateData.vegetables.color}
             className="transition-all hover:opacity-60 hover:scale-105"
-          />
-          <foreignObject x="40" y="35" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="flex flex-col items-center">
-                <div className="w-25 h-25 relative">
-                  <Image
+        />
+        <foreignObject x="40" y="35" width="160" height="160">
+            <div className="w-full h-full flex items-center justify-center relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 relative">
+                <Image
                     src={plateData.vegetables.icon}
                     alt="vegetables"
                     width={128}
                     height={128}
-                  />
+                    className="object-contain"
+                />
                 </div>
-              </div>
             </div>
-          </foreignObject>
+            </div>
+        </foreignObject>
         </g>
+
   
         {/* Fruits (top-right) */}
         <g onClick={() => handleSectionClick('fruits')} className="cursor-pointer">
-          <path 
+        <path 
             d="M200,200 L400,200 A200,200 0 0,0 200,0 Z" 
             fill={plateData.fruits.color}
             className="transition-all hover:opacity-60"
-          />
-          <foreignObject x="200" y="35" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="flex flex-col items-center">
-                <div className="w-25 h-25 relative">
-                  <Image
+        />
+        <foreignObject x="200" y="35" width="160" height="160">
+            <div className="w-full h-full flex items-center justify-center relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 relative">
+                <Image
                     src={plateData.fruits.icon}
                     alt="fruits"
                     width={128}
                     height={128}
-                  />
+                    className="object-contain"
+                />
                 </div>
-              </div>
             </div>
-          </foreignObject>
+            </div>
+        </foreignObject>
         </g>
+
   
         {/* Protein (bottom-left) */}
         <g onClick={() => handleSectionClick('protein')} className="cursor-pointer">
-          <path 
+        <path 
             d="M200,200 L0,200 A200,200 0 0,0 200,400 Z" 
             fill={plateData.protein.color}
             className="transition-all hover:opacity-60"
-          />
-          <foreignObject x="40" y="200" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="flex flex-col items-center">
-                <div className="w-25 h-25 relative">
-                  <Image
+        />
+        <foreignObject x="40" y="200" width="160" height="160">
+            <div className="w-full h-full flex items-center justify-center relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 relative">
+                <Image
                     src={plateData.protein.icon}
                     alt="protein"
                     width={128}
                     height={128}
-                  />
+                    className="object-contain"
+                />
                 </div>
-              </div>
             </div>
-          </foreignObject>
+            </div>
+        </foreignObject>
         </g>
+
   
         {/* Grains (bottom-right) */}
         <g onClick={() => handleSectionClick('grains')} className="cursor-pointer">
-          <path 
+        <path 
             d="M200,200 L200,400 A200,200 0 0,0 400,200 Z" 
             fill={plateData.grains.color}
             className="transition-all hover:opacity-60"
-          />
-          <foreignObject x="200" y="200" width="160" height="160">
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="flex flex-col items-center">
-                <div className="w-25 h-25 relative">
-                  <Image
+        />
+        <foreignObject x="200" y="200" width="160" height="160">
+            <div className="w-full h-full flex items-center justify-center relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 relative">
+                <Image
                     src={plateData.grains.icon}
                     alt="grains"
                     width={128}
                     height={128}
-                  />
+                    className="object-contain"
+                />
                 </div>
-              </div>
             </div>
-          </foreignObject>
+            </div>
+        </foreignObject>
         </g>
+
   
         {/* Dairy circle */}
         <g onClick={() => handleSectionClick('dairy')} className="cursor-pointer">
-          <circle 
+        <circle 
             cx="430" 
             cy="100" 
             r="50" 
             fill={plateData.dairy.color}
-            className="transition-all hover:opacity-60"
-          />
-          <foreignObject x="380" y="50" width="100" height="100">
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="flex flex-col items-center">
+            className="transition-opacity hover:opacity-80"
+        />
+        <foreignObject x="380" y="50" width="100" height="100">
+            <div className="w-full h-full flex items-center justify-center relative">
+            <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-24 h-24 relative">
-                  <Image
+                <Image
                     src={plateData.dairy.icon}
                     alt="dairy"
-                    width={128}
-                    height={128}
-                  />
+                    fill
+                    className="object-contain"
+                />
                 </div>
-              </div>
             </div>
-          </foreignObject>
+            </div>
+        </foreignObject>
         </g>
+
       </svg>
   
       {/* Selected Section Details */}
