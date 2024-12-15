@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useRef } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
@@ -14,8 +14,9 @@ const openSans = Open_Sans({
 });
 
 const NutritionFeedback = () => {
-  const [selectedSection, setSelectedSection] = useState('');
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [selectedSection, setSelectedSection] = useState<keyof typeof plateData | null>(null); // Keep this one
+
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   
   const plateData = {
     vegetables: {
@@ -24,7 +25,7 @@ const NutritionFeedback = () => {
       details: 'Including Spinach and Broccoli in your diet has improved your vegetable intake.',
       icon: '/vegetables.png',
       color: '#74B744',
-      iconPosition: { x: 100, y: 100 }
+      iconPosition: { x: 100, y: 100 },
     },
     fruits: {
       score: '7/10',
@@ -32,7 +33,7 @@ const NutritionFeedback = () => {
       details: 'Regular fruit consumption is helping maintain a balanced diet.',
       icon: '/fruits.png',
       color: '#D62128',
-      iconPosition: { x: 300, y: 100 }
+      iconPosition: { x: 300, y: 100 },
     },
     protein: {
       score: '10/10',
@@ -40,7 +41,7 @@ const NutritionFeedback = () => {
       details: 'Including Egg Whites and Chicken Breast in your diet led to exceptional results.',
       icon: '/protein.png',
       color: '#5F4994',
-      iconPosition: { x: 100, y: 300 }
+      iconPosition: { x: 100, y: 300 },
     },
     grains: {
       score: '8/10',
@@ -48,7 +49,7 @@ const NutritionFeedback = () => {
       details: 'Your whole grain intake is well-balanced.',
       icon: '/grains.png',
       color: '#E67323',
-      iconPosition: { x: 300, y: 300 }
+      iconPosition: { x: 300, y: 300 },
     },
     dairy: {
       score: '6/10',
@@ -56,8 +57,8 @@ const NutritionFeedback = () => {
       details: 'Consider reducing high-fat dairy products.',
       icon: '/dairy.png',
       color: '#5083C5',
-      iconPosition: { x: 450, y: 200 }
-    }
+      iconPosition: { x: 450, y: 200 },
+    },
   };
   
   const headingColors = {
@@ -72,23 +73,27 @@ const NutritionFeedback = () => {
 
   const handleScroll = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.style.scrollBehavior = 'smooth';
+      scrollContainerRef.current.scroll({
+        behavior: 'smooth',
+      });
     }
   };
 
   const handleSectionClick = (section: keyof typeof plateData) => {
-    setSelectedSection(section === selectedSection ? '' : section);
+    setSelectedSection(section === selectedSection ? null : section);
   };
+
 
   const MyPlateSVG = () => (
     <div className="relative w-full max-w-md mx-auto">
-      <svg viewBox="0 0 500 400" className="w-full h-auto">
+      <svg viewBox="0 0 500 400" className="w-full h-auto max-w-sm mx-auto">
+
         {/* Vegetables (top-left) */}
         <g onClick={() => handleSectionClick('vegetables')} className="cursor-pointer">
           <path 
             d="M200,200 L200,0 A200,200 0 0,0 0,200 Z" 
             fill={plateData.vegetables.color}
-            className="transition-opacity hover:opacity-80"
+            className="transition-all hover:opacity-60 hover:scale-105"
           />
           <foreignObject x="40" y="35" width="160" height="160">
             <div className="w-full h-full flex items-center justify-center">
@@ -111,7 +116,7 @@ const NutritionFeedback = () => {
           <path 
             d="M200,200 L400,200 A200,200 0 0,0 200,0 Z" 
             fill={plateData.fruits.color}
-            className="transition-opacity hover:opacity-80"
+            className="transition-all hover:opacity-60"
           />
           <foreignObject x="200" y="35" width="160" height="160">
             <div className="w-full h-full flex items-center justify-center">
@@ -134,7 +139,7 @@ const NutritionFeedback = () => {
           <path 
             d="M200,200 L0,200 A200,200 0 0,0 200,400 Z" 
             fill={plateData.protein.color}
-            className="transition-opacity hover:opacity-80"
+            className="transition-all hover:opacity-60"
           />
           <foreignObject x="40" y="200" width="160" height="160">
             <div className="w-full h-full flex items-center justify-center">
@@ -157,7 +162,7 @@ const NutritionFeedback = () => {
           <path 
             d="M200,200 L200,400 A200,200 0 0,0 400,200 Z" 
             fill={plateData.grains.color}
-            className="transition-opacity hover:opacity-80"
+            className="transition-all hover:opacity-60"
           />
           <foreignObject x="200" y="200" width="160" height="160">
             <div className="w-full h-full flex items-center justify-center">
@@ -182,7 +187,7 @@ const NutritionFeedback = () => {
             cy="100" 
             r="50" 
             fill={plateData.dairy.color}
-            className="transition-opacity hover:opacity-80"
+            className="transition-all hover:opacity-60"
           />
           <foreignObject x="380" y="50" width="100" height="100">
             <div className="w-full h-full flex items-center justify-center">
@@ -202,32 +207,36 @@ const NutritionFeedback = () => {
       </svg>
   
       {/* Selected Section Details */}
-    {selectedSection && (
-      <div className="mt-4 p-4 bg-gray-100 rounded-lg">
-        <div className="flex items-start gap-4">
-        <div className="p-2 rounded-full" style={{ backgroundColor: plateData[selectedSection]?.color || 'transparent' }}>
-            <div className="relative" style={{ width: '64px', height: '64px' }}>
+      {selectedSection && (
+        <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+          <div className="flex items-start gap-4">
+            <div className="p-2 rounded-full" style={{ backgroundColor: plateData[selectedSection]?.color || 'transparent' }}>
+              <div className="relative" style={{ width: '64px', height: '64px' }}>
                 {plateData[selectedSection]?.icon && (
-                <Image
+                  <Image
                     src={plateData[selectedSection].icon}
                     alt="Icon"
                     width={64}
                     height={64}
-                />
+                    onError={(e) => {
+                      console.error(`Image failed to load: ${plateData[selectedSection].icon}`);
+                    }}
+                  />
                 )}
+              </div>
             </div>
-        </div>
-          <div className="text-gray-900">
-            <h3 className="font-bold capitalize">
-              {selectedSection}: {plateData[selectedSection].score} - {plateData[selectedSection].status}
-            </h3>
-            <p>{plateData[selectedSection].details}</p>
+            <div className="text-gray-900">
+              <h3 className="font-bold capitalize">
+                {selectedSection}: {plateData[selectedSection].score} - {plateData[selectedSection].status}
+              </h3>
+              <p>{plateData[selectedSection].details}</p>
+            </div>
           </div>
         </div>
-      </div>
-    )}
-  </div>
-);
+      )}
+    </div>
+  );
+  
   
   
 
