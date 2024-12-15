@@ -4,6 +4,7 @@
 import React, { useState, useRef } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
+import Head from 'next/head';
 
 const bungee = Bungee({
   weight: '400',
@@ -271,9 +272,13 @@ const NutritionFeedback = () => {
   
 
   return (
-    <div className={`w-full max-w-md mx-auto bg-white rounded-lg shadow-lg ${openSans.className}`}>
+    <>
+    <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    </Head>
+    <div className={`w-full bg-white ${openSans.className}`}>
       <div 
-        className="h-[600px] overflow-y-auto p-6 text-gray-900" 
+        className="min-h-screen overflow-y-auto p-4 text-gray-900"
         ref={scrollContainerRef}
         onScroll={handleScroll}
       >
@@ -392,6 +397,7 @@ const NutritionFeedback = () => {
 
       </div>
     </div>
+    </>
   );
 };
 
