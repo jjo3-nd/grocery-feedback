@@ -329,6 +329,7 @@ const NutritionFeedback = () => {
               style={{ color: headingColors.myPlate }}>
             MyPlate Breakdown
           </h2>
+          <div className="score text-center m-4"><strong>HEI Score: 63.87 / 100</strong></div>
           <MyPlateSVG />
           <div className="text-center mt-4 text-gray-500 text-sm">
             Tap to Explore Each Group
