@@ -205,17 +205,18 @@ const NutritionFeedback = () => {
     {selectedSection && (
       <div className="mt-4 p-4 bg-gray-100 rounded-lg">
         <div className="flex items-start gap-4">
-          <div className="p-2 rounded-full" style={{ backgroundColor: plateData[selectedSection].color }}>
+        <div className="p-2 rounded-full" style={{ backgroundColor: plateData[selectedSection]?.color || 'transparent' }}>
             <div className="relative" style={{ width: '64px', height: '64px' }}>
-              <Image
-                src={plateData[selectedSection].icon}
-                alt={selectedSection}
-                width={64}
-                height={64}
-                className="object-contain"
-              />
+                {plateData[selectedSection]?.icon && (
+                <Image
+                    src={plateData[selectedSection].icon}
+                    alt="Icon"
+                    width={64}
+                    height={64}
+                />
+                )}
             </div>
-          </div>
+        </div>
           <div className="text-gray-900">
             <h3 className="font-bold capitalize">
               {selectedSection}: {plateData[selectedSection].score} - {plateData[selectedSection].status}
