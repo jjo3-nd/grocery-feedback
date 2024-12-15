@@ -1,4 +1,6 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 
 import React, { useState, useRef } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
@@ -218,8 +220,8 @@ const NutritionFeedback = () => {
                     alt="Icon"
                     width={64}
                     height={64}
-                    onError={(e) => {
-                      console.error(`Image failed to load: ${plateData[selectedSection].icon}`);
+                    onError={() => {
+                        console.error(`Image failed to load: ${plateData[selectedSection].icon}`);
                     }}
                   />
                 )}
