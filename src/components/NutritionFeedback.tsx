@@ -76,7 +76,7 @@ const NutritionFeedback = () => {
     }
   };
 
-  const handleSectionClick = (section) => {
+  const handleSectionClick = (section: keyof typeof plateData) => {
     setSelectedSection(section === selectedSection ? '' : section);
   };
 
