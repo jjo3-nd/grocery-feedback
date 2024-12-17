@@ -5,6 +5,7 @@ import React, { useState, useRef } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const bungee = Bungee({
   weight: '400',
@@ -284,17 +285,31 @@ const NutritionFeedback = () => {
       >
         {/* Logo & Title Section */}
         <div className="white p-4 rounded-lg mb-6">
-          <Image 
-            src="/FINs.png" 
-            alt="Food Logo" 
-            width={32} 
-            height={32} 
-            className="h-8 w-auto"
-          />
-          <h1 className={`${bungee.className} text-2xl text-center mt-2`} 
-              style={{ color: headingColors.title }}>
-            Grocery Feedback
-          </h1>
+          <div className="flex items-center justify-between relative">
+            <div className="absolute left-0">
+              <Image 
+                src="/FINs.png" 
+                alt="Food Logo" 
+                width={64} 
+                height={64} 
+                className="h-8 w-auto"
+              />
+            </div>
+            <div className="flex-1 text-center">
+              <h1 className={`${bungee.className} text-2xl`} 
+                  style={{ color: headingColors.title }}>
+                Grocery Feedback
+              </h1>
+            </div>
+            <div className="absolute right-0">
+              <Link 
+                href="/upload"
+                className={`${bungee.className} bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors`}
+              >
+                Upload Receipt
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Positive Choices Section */}
