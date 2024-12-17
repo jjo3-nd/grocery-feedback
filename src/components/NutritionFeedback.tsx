@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import React, { useState, useRef } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';

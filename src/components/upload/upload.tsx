@@ -14,7 +14,7 @@ const openSans = Open_Sans({
   subsets: ['latin'],
 });
 
-const upload = () => {
+const Upload = () => {
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string>('');
 
@@ -116,4 +116,4 @@ const upload = () => {
   );
 };
 
-export default upload;
+export default Upload;
