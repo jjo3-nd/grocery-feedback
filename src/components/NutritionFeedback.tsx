@@ -17,22 +17,23 @@ const openSans = Open_Sans({
 
 const NutritionFeedback = () => {
   const [selectedSection, setSelectedSection] = useState<keyof typeof plateData | null>(null); // Keep this one
+  const [selectedModerationSection, setSelectedModerationSection] = useState<keyof typeof moderationData | null>(null); // Keep this one
 
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   
   const plateData = {
     vegetables: {
-      score: '8/10',
-      status: 'Good',
-      details: 'Including Spinach and Broccoli in your diet has improved your vegetable intake.',
+      score: '10/10',
+      status: 'Great',
+      details: 'Including Tomatoes, Green beans, and Chicken or turkey vegetable soup in your diet has improved your vegetable intake.',
       icon: '/vegetables.png',
       color: '#74B744',
       iconPosition: { x: 100, y: 100 },
     },
     fruits: {
-      score: '7/10',
-      status: 'Good',
-      details: 'Regular fruit consumption is helping maintain a balanced diet.',
+      score: '10/10',
+      status: 'Great',
+      details: 'Including Apple, Banana, and Orange juice in your diet has improved your fruits intake',
       icon: '/fruits.png',
       color: '#D62128',
       iconPosition: { x: 300, y: 100 },
@@ -40,26 +41,65 @@ const NutritionFeedback = () => {
     protein: {
       score: '10/10',
       status: 'Great',
-      details: 'Including Egg Whites and Chicken Breast in your diet led to exceptional results.',
+      details: 'Including Turkey, Black beans, and Chicken or turkey vegetable soup in your diet led to exceptional results.',
       icon: '/protein.png',
       color: '#5F4994',
       iconPosition: { x: 100, y: 300 },
     },
     grains: {
-      score: '8/10',
-      status: 'Good',
-      details: 'Your whole grain intake is well-balanced.',
+      score: '5.17/10',
+      status: 'Moderate',
+      details: 'Your whole grain intake is well-balanced due to Oats and Rice.',
       icon: '/grains.png',
       color: '#E67323',
       iconPosition: { x: 300, y: 300 },
     },
     dairy: {
-      score: '6/10',
-      status: 'Fair',
-      details: 'Consider reducing high-fat dairy products.',
+      score: '8.05/10',
+      status: 'Great',
+      details: 'This score is great due to Milk, Greek Yogurt, and Cheese.',
       icon: '/dairy.png',
       color: '#5083C5',
       iconPosition: { x: 450, y: 200 },
+    },
+  };
+
+  const moderationData = {
+    refinedgrains: {
+      name: 'Refined Grains',
+      score: '10/10',
+      status: 'Great',
+      details: 'Your refined grain intake is well-balanced.',
+      icon: '/refinedgrains.png',
+      color: '#e7138c',
+      iconPosition: { x: 100, y: 100 },
+    },
+    sodium: {
+      name: 'Sodium',
+      score: '6.49/10',
+      status: 'Moderate',
+      details: 'Italian dressing had high sodium',
+      icon: '/sodium.png',
+      color: '#5ec9e3',
+      iconPosition: { x: 300, y: 100 },
+    },
+    addedsugars: {
+      name: 'Added Sugars',
+      score: '10/10',
+      status: 'Great',
+      details: 'Your added sugars intake was well moderated, although Lemonade had relatively high added sugar.',
+      icon: '/addedsugars.png',
+      color: '#9e69ad',
+      iconPosition: { x: 100, y: 300 },
+    },
+    fattyacids: {
+      name: 'Fatty Acids',
+      score: '9.73/10',
+      status: 'Great',
+      details: 'Stick Butter had relatively high saturated fat.',
+      icon: '/fattyacids.png',
+      color: '#fbb616',
+      iconPosition: { x: 300, y: 300 },
     },
   };
   
@@ -81,8 +121,25 @@ const NutritionFeedback = () => {
     }
   };
 
+  const getStatusColor = (status) => {
+    switch (status.toLowerCase()) {
+      case "great":
+        return "#009900";
+      case "moderate":
+        return "#ff6c00";
+      case "needs improvement":
+        return "#ff0000";
+      default:
+        return "#4B5563";
+    }
+  };
+
   const handleSectionClick = (section: keyof typeof plateData) => {
     setSelectedSection(section === selectedSection ? null : section);
+  };
+
+  const handleModerationSectionClick = (section: keyof typeof moderationData) => {
+    setSelectedModerationSection(section === selectedModerationSection ? null : section);
   };
 
 
@@ -255,12 +312,22 @@ const NutritionFeedback = () => {
                 )}
               </div>
             </div>
+            
             <div className="text-gray-900">
-              <h3 className="font-bold capitalize">
-                {selectedSection}: {plateData[selectedSection].score} - {plateData[selectedSection].status}
-              </h3>
-              <p>{plateData[selectedSection].details}</p>
-            </div>
+            <h3 className="font-bold capitalize">
+              {selectedSection}: {plateData[selectedSection].score} {"  "}
+              <div 
+                className="text-sm font-bold mb-2 px-2 py-1 rounded-full inline-block"
+                style={{ 
+                  backgroundColor: `${getStatusColor(plateData[selectedSection].status)}20`,
+                  color: getStatusColor(plateData[selectedSection].status)
+                }}
+              >
+                {plateData[selectedSection].status}
+              </div>
+            </h3>
+            <p>{plateData[selectedSection].details}</p>
+          </div>
           </div>
         </div>
       )}
@@ -268,7 +335,180 @@ const NutritionFeedback = () => {
   );
 };
   
+
+const ModerationSVG = () => {
+  // Calculate the exact centers of each quadrant
+  const radius = 200;
+  const centerX = 200;
+  const centerY = 200;
+  const quadrantRadius = radius * 0.6; // (radius * Math.cos(45°)) for quadrant centers
   
+  // Calculate exact center points for each section
+  const centerPoints = {
+    refinedgrains: {
+      x: centerX - quadrantRadius * 0.7,  // top-left
+      y: centerY - quadrantRadius * 0.7
+    },
+    sodium: {
+      x: centerX + quadrantRadius * 0.7,  // top-right
+      y: centerY - quadrantRadius * 0.7
+    },
+    addedsugars: {
+      x: centerX - quadrantRadius * 0.7,  // bottom-left
+      y: centerY + quadrantRadius * 0.7
+    },
+    fattyacids: {
+      x: centerX + quadrantRadius * 0.7,  // bottom-right
+      y: centerY + quadrantRadius * 0.7
+    }
+  };
+
+  const iconSize = 110; // Size of the icons
+  const halfIconSize = iconSize / 2;
+
+  return (
+    <div className="relative w-full max-w-md mx-auto">
+      <svg viewBox="0 0 500 400" className="w-full h-auto max-w-sm mx-auto">
+        {/* Base plate circle */}
+        <circle 
+          cx={centerX} 
+          cy={centerY} 
+          r={radius} 
+          fill="none" 
+          stroke="transparent" 
+        />
+
+        {/* Refined Grains (top-left) */}
+        <g onClick={() => handleModerationSectionClick('refinedgrains')} className="cursor-pointer">
+          <path 
+            d="M200,200 L200,0 A200,200 0 0,0 0,200 Z" 
+            fill={moderationData.refinedgrains.color}
+            className="transition-all hover:opacity-60"
+          />
+          <svg 
+            x={centerPoints.refinedgrains.x - halfIconSize} 
+            y={centerPoints.refinedgrains.y - halfIconSize} 
+            width={iconSize} 
+            height={iconSize}
+          >
+            <image
+              href={moderationData.refinedgrains.icon}
+              width={iconSize}
+              height={iconSize}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          </svg>
+        </g>
+
+        {/* Sodium (top-right) */}
+        <g onClick={() => handleModerationSectionClick('sodium')} className="cursor-pointer">
+          <path 
+            d="M200,200 L400,200 A200,200 0 0,0 200,0 Z" 
+            fill={moderationData.sodium.color}
+            className="transition-all hover:opacity-60"
+          />
+          <svg 
+            x={centerPoints.sodium.x - halfIconSize} 
+            y={centerPoints.sodium.y - halfIconSize} 
+            width={iconSize} 
+            height={iconSize}
+          >
+            <image
+              href={moderationData.sodium.icon}
+              width={iconSize}
+              height={iconSize}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          </svg>
+        </g>
+
+        {/* Added Sugars (bottom-left) */}
+        <g onClick={() => handleModerationSectionClick('addedsugars')} className="cursor-pointer">
+          <path 
+            d="M200,200 L0,200 A200,200 0 0,0 200,400 Z" 
+            fill={moderationData.addedsugars.color}
+            className="transition-all hover:opacity-60"
+          />
+          <svg 
+            x={centerPoints.addedsugars.x - halfIconSize} 
+            y={centerPoints.addedsugars.y - halfIconSize} 
+            width={iconSize} 
+            height={iconSize}
+          >
+            <image
+              href={moderationData.addedsugars.icon}
+              width={iconSize}
+              height={iconSize}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          </svg>
+        </g>
+
+        {/* Fatty Acids (bottom-right) */}
+        <g onClick={() => handleModerationSectionClick('fattyacids')} className="cursor-pointer">
+          <path 
+            d="M200,200 L200,400 A200,200 0 0,0 400,200 Z" 
+            fill={moderationData.fattyacids.color}
+            className="transition-all hover:opacity-60"
+          />
+          <svg 
+            x={centerPoints.fattyacids.x - halfIconSize} 
+            y={centerPoints.fattyacids.y - halfIconSize} 
+            width={iconSize} 
+            height={iconSize}
+          >
+            <image
+              href={moderationData.fattyacids.icon}
+              width={iconSize}
+              height={iconSize}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          </svg>
+        </g>
+      </svg>
+
+    {/* Selected Section Details */}
+    {selectedModerationSection && (
+      <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+        <div className="flex items-start gap-4">
+          <div className="p-2 rounded-full" style={{ backgroundColor: moderationData[selectedModerationSection]?.color || 'transparent' }}>
+            <div className="relative" style={{ width: '64px', height: '64px' }}>
+              {moderationData[selectedModerationSection]?.icon && (
+                <Image
+                  src={moderationData[selectedModerationSection].icon}
+                  alt="Icon"
+                  width={64}
+                  height={64}
+                  onError={() => {
+                      console.error(`Image failed to load: ${moderationData[selectedModerationSection].icon}`);
+                  }}
+                />
+              )}
+            </div>
+          </div>
+          <div className="text-gray-900">
+            <h3 className="font-bold capitalize">
+              {moderationData[selectedModerationSection].name}: {moderationData[selectedModerationSection].score} {"  "}
+              <div 
+                className="text-sm font-bold mb-2 px-2 py-1 rounded-full inline-block"
+                style={{ 
+                  backgroundColor: `${getStatusColor(moderationData[selectedModerationSection].status)}20`,
+                  color: getStatusColor(moderationData[selectedModerationSection].status)
+                }}
+              >
+                {moderationData[selectedModerationSection].status}
+              </div>
+            </h3>
+            <p>{moderationData[selectedModerationSection].details}</p>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+);
+};
+
+
   
 
   return (
@@ -318,9 +558,9 @@ const NutritionFeedback = () => {
             Positive Choices This Week
           </h2>
           <ul className="space-y-2 text-gray-900">
-            <li className="flex items-center gap-2">• Spinach</li>
-            <li className="flex items-center gap-2">• Broccoli</li>
-            <li className="flex items-center gap-2">• Yogurt</li>
+            <li className="flex items-center gap-2">• Apple</li>
+            <li className="flex items-center gap-2">• Banana</li>
+            <li className="flex items-center gap-2">• Orange Juice</li>
           </ul>
         </div>
 
@@ -332,8 +572,8 @@ const NutritionFeedback = () => {
           </h2>
           <p className="mb-4 text-gray-900">You indicated your goals were to <strong>reduce added sugar</strong>, <strong>reduce sodium</strong>, and <strong>increase vegetable intake</strong>.</p>
           <ul className="space-y-2 text-gray-900">
-            <li>• You have made great strides in increasing your vegetable intake with smart choices like <strong>Spinach</strong> and <strong>Broccoli</strong>.</li>
-            <li>• However, items like <strong>Butter</strong> and <strong>Cheese</strong> did not support your goal of reducing saturated fat levels.</li>
+            <li>• You made excellent progress with reducing added sugar, as reflected in your purchases of foods low in added sugars like <strong>Orange juice</strong> and <strong>Greek Yogurt</strong>. Keep it up!</li>
+            <li>• You purchased foods such as <strong>Chicken Broth</strong> and <strong>Italian Dressing</strong> which contributed to your sodium intake, not aligning with your goal to reduce sodium.</li>
           </ul>
         </div>
 
@@ -343,7 +583,7 @@ const NutritionFeedback = () => {
               style={{ color: headingColors.myPlate }}>
             MyPlate Breakdown
           </h2>
-          <div className="score text-center m-4"><strong>HEI Score: 63.87 / 100</strong></div>
+          <div className="score text-center m-4"><strong>Overall Nutrition Score: 85.96 / 100</strong></div>
           <MyPlateSVG />
           <div className="text-center mt-4 text-gray-500 text-sm">
             Tap to Explore Each Group
@@ -354,12 +594,16 @@ const NutritionFeedback = () => {
         <div className="bg-gray-50 p-4 rounded-lg mb-6">
           <h2 className={`${bungee.className} text-xl mb-4 text-center`}
               style={{ color: headingColors.otherNutrition }}>
-            Other Nutrition Information
+            Components to Moderate
           </h2>
-          <div className="mb-4">
+          <ModerationSVG />
+          <div className="text-center mt-4 text-gray-500 text-sm">
+            Tap to Explore Each Group
+          </div>
+          {/* <div className="mb-4">
             <p className="text-red-500">Saturated Fats: 1.46/10 - Needs Improvement</p>
             <p className="text-gray-900">Choices such as <strong>Butter</strong> and <strong>Cheese</strong> introduced more saturated fats, affecting your score.</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Recommendations Section */}
@@ -370,19 +614,15 @@ const NutritionFeedback = () => {
           </h2>
           <div className="space-y-4">
             <div className="p-4 bg-white rounded-lg">
-              <h3 className="font-bold text-gray-900">Butter:</h3>
+              <h3 className="font-bold text-gray-900">Canned Green Beans:</h3>
               <p className="text-gray-900">
-                To better align with your health goals, consider trying{" "}
-                <span style={{ color: "#A3AA4E", fontWeight: "bold" }}>Smart Balance Original Buttery Spread</span>{" "}
-                available at Walmart.
+                Next week, try more fresh or lightly cooked vegetables such as spinach or kale, offering higher nutrients and lower sodium content
               </p>
             </div>
             <div className="p-4 bg-white rounded-lg">
-              <h3 className="font-bold text-gray-900">Cheese:</h3>
+              <h3 className="font-bold text-gray-900">Instant White Rice:</h3>
               <p className="text-gray-900">
-                For a healthier alternative,{" "}
-                <span style={{ color: "#A3AA4E", fontWeight: "bold" }}>Follow Your Heart Dairy-Free Cheddar Cheese</span>{" "}
-                from Walmart could be a great option.
+                Consider whole grain alternatives like brown rice or quinoa to improve fiber intake. 
               </p>
             </div>
           </div>
@@ -399,8 +639,8 @@ const NutritionFeedback = () => {
               <Image 
                 src="/progress.png" 
                 alt="Progress Graph" 
-                width={400}
-                height={200}
+                width={100}
+                height={50}
                 className="w-full rounded-lg"
               />
             </div>
