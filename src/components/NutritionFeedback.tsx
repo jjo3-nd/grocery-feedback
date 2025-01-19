@@ -121,7 +121,7 @@ const NutritionFeedback = () => {
     }
   };
 
-  const getStatusColor = (status: string): string => { {
+  const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
       case "great":
         return "#009900";
