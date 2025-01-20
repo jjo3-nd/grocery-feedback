@@ -93,7 +93,7 @@ const BadBasket = () => {
       iconPosition: { x: 100, y: 300 },
     },
     fattyacids: {
-      name: 'Fatty Acids',
+      name: 'Saturated Fat',
       score: '2.37/10',
       status: 'Needs Improvement',
       details: 'Items like Land O Lakes Salted Stick Butter and 80% Lean / 20% Fat Ground Beef Chuck contributed to a low score. High saturated fat intake can lead to heart diseases.',
