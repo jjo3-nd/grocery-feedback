@@ -62,6 +62,14 @@ const GoodBasket = () => {
       color: '#5083C5',
       iconPosition: { x: 450, y: 200 },
     },
+    unsaturatedfat: {
+      score: '6.53/10',
+      status: 'Moderate',
+      details: 'You had a moderate fatty acid score this week. Foods like Great Value Reduced Fat Mayonnaise with Olive Oil contributed to this. Fatty acids, especially omega-3s, improve heart health. Consider balancing your fats better.',
+      icon: '/unsaturatedfat.png',
+      color: '#fbb616',
+      iconPosition: { x: 300, y: 100 },
+    },
   };
 
   const moderationData = {
@@ -92,12 +100,12 @@ const GoodBasket = () => {
       color: '#9e69ad',
       iconPosition: { x: 100, y: 300 },
     },
-    fattyacids: {
+    saturatedfat: {
       name: 'Saturated Fat',
       score: '9.73/10',
       status: 'Great',
       details: 'With minimal items high in saturated fats, you maintained a great score. Keeping saturated fat low is important in reducing the risk of heart disease. Well done!',
-      icon: '/fattyacids.png',
+      icon: '/saturatedfat.png',
       color: '#fbb616',
       iconPosition: { x: 300, y: 300 },
     },
@@ -282,11 +290,31 @@ const GoodBasket = () => {
               fill={plateData.dairy.color}
               className="transition-opacity hover:opacity-80"
             />
-            <svg x="400" y="70" width="60" height="60">
+            <svg x="380" y="50" width="100" height="100">
               <image
                 href={plateData.dairy.icon}
-                width="60"
-                height="60"
+                width="100"
+                height="100"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+          </g>
+
+
+          {/* Unsaturated Fat circle */}
+          <g onClick={() => handleSectionClick('unsaturatedfat')} className="cursor-pointer">
+            <circle 
+              cx="430" 
+              cy="300" 
+              r="50" 
+              fill={plateData.unsaturatedfat.color}
+              className="transition-opacity hover:opacity-80"
+            />
+            <svg x="380" y="250" width="100" height="100">
+              <image
+                href={plateData.unsaturatedfat.icon}
+                width="100"
+                height="100"
                 preserveAspectRatio="xMidYMid meet"
               />
             </svg>
@@ -357,7 +385,7 @@ const ModerationSVG = () => {
       x: centerX - quadrantRadius * 0.7,  // bottom-left
       y: centerY + quadrantRadius * 0.7
     },
-    fattyacids: {
+    saturatedfat: {
       x: centerX + quadrantRadius * 0.7,  // bottom-right
       y: centerY + quadrantRadius * 0.7
     }
@@ -444,21 +472,21 @@ const ModerationSVG = () => {
           </svg>
         </g>
 
-        {/* Fatty Acids (bottom-right) */}
-        <g onClick={() => handleModerationSectionClick('fattyacids')} className="cursor-pointer">
+        {/* saturated fat (bottom-right) */}
+        <g onClick={() => handleModerationSectionClick('saturatedfat')} className="cursor-pointer">
           <path 
             d="M200,200 L200,400 A200,200 0 0,0 400,200 Z" 
-            fill={moderationData.fattyacids.color}
+            fill={moderationData.saturatedfat.color}
             className="transition-all hover:opacity-60"
           />
           <svg 
-            x={centerPoints.fattyacids.x - halfIconSize} 
-            y={centerPoints.fattyacids.y - halfIconSize} 
+            x={centerPoints.saturatedfat.x - halfIconSize} 
+            y={centerPoints.saturatedfat.y - halfIconSize} 
             width={iconSize} 
             height={iconSize}
           >
             <image
-              href={moderationData.fattyacids.icon}
+              href={moderationData.saturatedfat.icon}
               width={iconSize}
               height={iconSize}
               preserveAspectRatio="xMidYMid meet"
@@ -540,14 +568,6 @@ const ModerationSVG = () => {
                 Grocery Feedback
               </h1>
             </div>
-            <div className="absolute right-0">
-              <Link 
-                href="/upload"
-                className={`${bungee.className} bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors`}
-              >
-                Upload Receipt
-              </Link>
-            </div>
           </div>
         </div>
 
@@ -611,7 +631,7 @@ const ModerationSVG = () => {
         <div className="bg-gray-50 p-4 rounded-lg mb-6">
           <h2 className={`${bungee.className} text-xl mb-4 text-center`}
               style={{ color: headingColors.recommendations }}>
-            Recommendations
+            Suggestions
           </h2>
           <div className="space-y-4">
             <div className="p-4 bg-white rounded-lg">
@@ -641,9 +661,9 @@ const ModerationSVG = () => {
                 src="/progress.png" 
                 alt="Progress Graph" 
                 width={600}
-                height={400}
+                height={300}
                 className="rounded-lg"
-                style={{ width: '600px', height: '400px' }} 
+                style={{ width: '600px', height: '300px' }} 
               />
             </div>
             <p className="text-gray-900 font-bold text-center">

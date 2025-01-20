@@ -611,7 +611,7 @@ const ModerationSVG = () => {
         <div className="bg-gray-50 p-4 rounded-lg mb-6">
           <h2 className={`${bungee.className} text-xl mb-4 text-center`}
               style={{ color: headingColors.recommendations }}>
-            Recommendations
+            Suggestions
           </h2>
           <div className="space-y-4">
             <div className="p-4 bg-white rounded-lg">
