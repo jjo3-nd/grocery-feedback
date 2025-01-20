@@ -25,7 +25,7 @@ const BadBasket = () => {
     vegetables: {
       score: '10/10',
       status: 'Great',
-      details: 'Including Tomatoes in your diet has improved your vegetable intake.',
+      details: 'You had a great score due to Great Value Cut Green Beans and Fresh Tomato on the Vine. Vegetables are great to include in your diet as they are high in essential vitamins and minerals and low in calories, supporting overall health. Keep it up!',
       icon: '/vegetables.png',
       color: '#74B744',
       iconPosition: { x: 100, y: 100 },
@@ -33,7 +33,7 @@ const BadBasket = () => {
     fruits: {
       score: '6.26/10',
       status: 'Moderate',
-      details: 'Apple juice has increased your fruits intake',
+      details: "You included Mott's 100% Juice Original Apple Juice, which contributed to your total fruit score. Including more whole fruits is beneficial because they provide fiber that juice lacks.",
       icon: '/fruits.png',
       color: '#D62128',
       iconPosition: { x: 300, y: 100 },
@@ -41,7 +41,7 @@ const BadBasket = () => {
     protein: {
       score: '10/10',
       status: 'Great',
-      details: 'Including Egg and Ground Beef led to exceptional results.',
+      details: 'Your score was high due to purchases of Great Value Black Beans and 80% Lean / 20% Fat Ground Beef Chuck. Including various protein sources can enhance nutrient intake. Well done!',
       icon: '/protein.png',
       color: '#5F4994',
       iconPosition: { x: 100, y: 300 },
@@ -49,7 +49,7 @@ const BadBasket = () => {
     grains: {
       score: '4.44/10',
       status: 'Moderate',
-      details: 'Oats contributed the most to your whole grain intake.',
+      details: 'Your score included Great Value Instant Oats for whole grains, but had Minute Instant White Rice contributing to a lower whole grain score. Replacing refined grains with whole grains is beneficial for increasing nutrient and fiber content.',
       icon: '/grains.png',
       color: '#E67323',
       iconPosition: { x: 300, y: 300 },
@@ -57,7 +57,7 @@ const BadBasket = () => {
     dairy: {
       score: '7.35/10',
       status: 'Great',
-      details: 'This score is great due to Milk.',
+      details: 'You achieved a good score with foods like Great Value Milk Whole Vitamin D and Great Value Original Strawberry Lowfat Yogurt. Dairy provides essential nutrients like calcium and vitamin D.',
       icon: '/dairy.png',
       color: '#5083C5',
       iconPosition: { x: 450, y: 200 },
@@ -69,7 +69,7 @@ const BadBasket = () => {
       name: 'Refined Grains',
       score: '10/10',
       status: 'Great',
-      details: 'Your refined grain intake is well-balanced, while Instant Rice had high refined grains.',
+      details: 'Your score is great because refined grain intake was minimal this week. Refined grains can spike blood sugar, so having less can benefit your overall health. Great job on managing this!',
       icon: '/refinedgrains.png',
       color: '#e7138c',
       iconPosition: { x: 100, y: 100 },
@@ -78,7 +78,7 @@ const BadBasket = () => {
       name: 'Sodium',
       score: '0/10',
       status: 'Needs Improvement',
-      details: 'Soy sauce had high sodium.',
+      details: 'You had a high sodium purchase with items like Swanson 100% Natural Chicken Broth and Great Value Naturally Brewed Soy Sauce contributing to the lack of scoring in this category. High sodium intake can lead to high blood pressure.',
       icon: '/sodium.png',
       color: '#5ec9e3',
       iconPosition: { x: 300, y: 100 },
@@ -87,7 +87,7 @@ const BadBasket = () => {
       name: 'Added Sugars',
       score: '10/10',
       status: 'Great',
-      details: 'Your added sugars intake was well moderated, although Cereal had relatively high added sugar.',
+      details: 'You chose items with minimal added sugars like Black beans, NFS and Great Value Instant Oats Tube. This is beneficial, as high added sugar intake can contribute to weight gain and dental problems. Keep it up!',
       icon: '/addedsugars.png',
       color: '#9e69ad',
       iconPosition: { x: 100, y: 300 },
@@ -96,7 +96,7 @@ const BadBasket = () => {
       name: 'Fatty Acids',
       score: '2.37/10',
       status: 'Needs Improvement',
-      details: 'Stick Butter had relatively high saturated fat.',
+      details: 'Items like Land O Lakes Salted Stick Butter and 80% Lean / 20% Fat Ground Beef Chuck contributed to a low score. High saturated fat intake can lead to heart diseases.',
       icon: '/fattyacids.png',
       color: '#fbb616',
       iconPosition: { x: 300, y: 300 },
@@ -558,9 +558,9 @@ const ModerationSVG = () => {
             Positive Choices This Week
           </h2>
           <ul className="space-y-2 text-gray-900">
-            <li className="flex items-center gap-2">• Milk</li>
-            <li className="flex items-center gap-2">• Tomatoes</li>
-            <li className="flex items-center gap-2">• Green beans</li>
+            <li className="flex items-center gap-2">• Great Value Cut Green Beans</li>
+            <li className="flex items-center gap-2">• Fresh Tomato on the Vine</li>
+            <li className="flex items-center gap-2">• Great Value Black Beans</li>
           </ul>
         </div>
 
@@ -572,9 +572,9 @@ const ModerationSVG = () => {
           </h2>
           <p className="mb-4 text-gray-900">You indicated your goals were to <strong>reduce added sugar</strong>, <strong>reduce sodium</strong>, and <strong>increase vegetable intake</strong>.</p>
           <ul className="space-y-2 text-gray-900">
-            <li>• Great work! You made great progress with reducing added sugars. This was due to your purchases of lower-sugar options like <strong>Low fat yogurt</strong> and other choices that helped maintain your Added Sugars score at a high level. Keep it up!</li>
-            <li>• Great work! You increased your vegetable intake, contributing to a great score in the vegetable category. This was due to your purchases of <strong>Tomatoes</strong>. Keep it up!</li>
-            <li>• Some choices this week didn’t align with your dietary goals regarding sodium intake. Your purchases of <strong>Soy sauce</strong> and <strong>Chicken noodle soup</strong> contributed to your sodium intake.</li>
+            <li>• Great work! You made great progress with your goals in increasing vegetable intake. This was due to your purchases of <strong>Great Value Cut Green Beans</strong>, <strong>Fresh Tomato on the Vine</strong>, and <strong>Great Value Black Beans</strong>. Keep it up!</li>
+            <li>• Some choices this week didn’t align with your dietary goals. You purchased <strong>Land O Lakes Salted Stick Butter</strong> and <strong>Great Value Reduced Fat Mayonnaise with Olive Oil</strong> which didn’t contribute to your goal of reducing sodium.</li>
+            <li>• Some choices this week didn’t align with your dietary goals. You purchased <strong>Kellogg's Cocoa Krispies Breakfast Cereal</strong>, which didn’t contribute to your goal of reducing added sugar.</li>
           </ul>
         </div>
 
@@ -615,15 +615,27 @@ const ModerationSVG = () => {
           </h2>
           <div className="space-y-4">
             <div className="p-4 bg-white rounded-lg">
-              <h3 className="font-bold text-gray-900">Saturated Fat:</h3>
+              <h3 className="font-bold text-gray-900">Sodium:</h3>
               <p className="text-gray-900">
-                Try replacing high saturated fat foods with leaner proteins or plant-based fats.
+                Choosing low-sodium alternatives or low-sodium broths can help reduce your sodium score.
               </p>
             </div>
             <div className="p-4 bg-white rounded-lg">
-              <h3 className="font-bold text-gray-900">Sodium:</h3>
+              <h3 className="font-bold text-gray-900">Sugars:</h3>
               <p className="text-gray-900">
-                Try using low-sodium options or replacing with spices/herbs.
+                Increasing purchases of items with no or lower added sugars like whole grain cereals instead of the Cocoa Krispies.
+              </p>
+            </div>
+            <div className="p-4 bg-white rounded-lg">
+              <h3 className="font-bold text-gray-900">Whole Fruits:</h3>
+              <p className="text-gray-900">
+                Adding fresh fruits like apples and bananas can improve your whole fruit component.
+              </p>
+            </div>
+            <div className="p-4 bg-white rounded-lg">
+              <h3 className="font-bold text-gray-900">Saturated Fats:</h3>
+              <p className="text-gray-900">
+                Consider leaner meats or low-fat dairy products to lower saturated fat intake.
               </p>
             </div>
           </div>
@@ -636,13 +648,13 @@ const ModerationSVG = () => {
             Your Progress
           </h2>
           <div className="p-4 bg-white rounded-lg">
-            <div className="mb-4">
+            <div className="mb-4 flex justify-center">
               <Image 
                 src="/badprogress.png" 
                 alt="Progress Graph" 
-                width={100}
-                height={50}
-                className="w-full rounded-lg"
+                width={500}
+                height={400}
+                className="rounded-lg"
               />
             </div>
             <p className="text-gray-900 font-bold text-center">
