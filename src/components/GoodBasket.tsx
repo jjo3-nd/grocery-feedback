@@ -574,7 +574,7 @@ const ModerationSVG = () => {
           <ul className="space-y-2 text-gray-900">
             <li>• Great work! You made great progress with your goals in reducing added sugar. This was due to your purchases of: Great Value Greek Plain Nonfat Yogurt. Keep it up!</li>
             <li>• You did well in increasing vegetable intake with purchases like <strong>Fresh Roma Tomato</strong> and <strong>Great Value Cut Green Beans</strong>. Keep it up!</li>
-            <li>• Some choices this week didn’t align with your dietary goal of reducing sodium. While there were some high-sodium items like <strong>Swanson 100% Natural Chicken Broth</strong>, the overall sodium intake should still be monitored.</li>
+            <li>• Some choices this week didn't align with your dietary goal of reducing sodium. While there were some high-sodium items like <strong>Swanson 100% Natural Chicken Broth</strong>, the overall sodium intake should still be monitored.</li>
           </ul>
         </div>
 
@@ -640,9 +640,10 @@ const ModerationSVG = () => {
               <Image 
                 src="/progress.png" 
                 alt="Progress Graph" 
-                width={500}
+                width={600}
                 height={400}
                 className="rounded-lg"
+                style={{ width: '600px', height: '400px' }} 
               />
             </div>
             <p className="text-gray-900 font-bold text-center">

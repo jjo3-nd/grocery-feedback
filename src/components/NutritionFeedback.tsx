@@ -25,7 +25,7 @@ const NutritionFeedback = () => {
     vegetables: {
       score: '10/10',
       status: 'Great',
-      details: 'Including Tomatoes, Green beans, and Chicken or turkey vegetable soup in your diet has improved your vegetable intake.',
+      details: 'You had a great score due to Fresh Roma Tomato and Great Value Cut Green Beans. Vegetables are great to include in your diet as they are high in essential vitamins and minerals and low in calories, supporting overall health. Keep it up!',
       icon: '/vegetables.png',
       color: '#74B744',
       iconPosition: { x: 100, y: 100 },
@@ -33,7 +33,7 @@ const NutritionFeedback = () => {
     fruits: {
       score: '10/10',
       status: 'Great',
-      details: 'Including Apple, Banana, and Orange juice in your diet has improved your fruits intake',
+      details: 'Your purchase of Fresh Gala Apples and Great Value Sliced Bananas (Frozen) contributed to a high fruit score. Fruits are essential for providing vitamins, minerals, and fiber. Keep it up!',
       icon: '/fruits.png',
       color: '#D62128',
       iconPosition: { x: 300, y: 100 },
@@ -41,7 +41,7 @@ const NutritionFeedback = () => {
     protein: {
       score: '10/10',
       status: 'Great',
-      details: 'Including Turkey, Black beans, and Chicken or turkey vegetable soup in your diet led to exceptional results.',
+      details: 'Your purchase of Perdue Harvestland Fresh Ground Turkey and Great Value Black Beans contributed to a high protein score. Protein supports muscle maintenance and repair. Continue enjoying a variety of protein sources!',
       icon: '/protein.png',
       color: '#5F4994',
       iconPosition: { x: 100, y: 300 },
@@ -49,7 +49,7 @@ const NutritionFeedback = () => {
     grains: {
       score: '5.17/10',
       status: 'Moderate',
-      details: 'Your whole grain intake is well-balanced due to Oats and Rice.',
+      details: 'The purchase of Quaker, Quick 1 Minute Oats contributed to your whole grain intake, but Minute Instant White Rice, a refined grain, lowered the score. Whole grains provide more fiber and nutrients compared to refined grains.',
       icon: '/grains.png',
       color: '#E67323',
       iconPosition: { x: 300, y: 300 },
@@ -57,7 +57,7 @@ const NutritionFeedback = () => {
     dairy: {
       score: '8.05/10',
       status: 'Great',
-      details: 'This score is great due to Milk, Greek Yogurt, and Cheese.',
+      details: 'Great Value Greek Plain Nonfat Yogurt and Great Value, 2% Reduced Fat Milk contributed positively to your dairy score. Dairy is an important source of calcium and vitamin D essential for bone health. Well done!',
       icon: '/dairy.png',
       color: '#5083C5',
       iconPosition: { x: 450, y: 200 },
@@ -69,7 +69,7 @@ const NutritionFeedback = () => {
       name: 'Refined Grains',
       score: '10/10',
       status: 'Great',
-      details: 'Your refined grain intake is well-balanced.',
+      details: 'Minimal purchase of refined grains like white rice ensured an excellent score. Refined grains, such as white rice, are lower in fiber and nutrients. Try focusing on whole grains for extra health benefits.',
       icon: '/refinedgrains.png',
       color: '#e7138c',
       iconPosition: { x: 100, y: 100 },
@@ -78,7 +78,7 @@ const NutritionFeedback = () => {
       name: 'Sodium',
       score: '6.49/10',
       status: 'Moderate',
-      details: 'Italian dressing had high sodium',
+      details: 'Some high-sodium items like Swanson 100% Natural Chicken Broth were purchased. Reducing the intake of high-sodium products can prevent high blood pressure and related diseases. Aim for more low-sodium products next time.',
       icon: '/sodium.png',
       color: '#5ec9e3',
       iconPosition: { x: 300, y: 100 },
@@ -87,16 +87,16 @@ const NutritionFeedback = () => {
       name: 'Added Sugars',
       score: '10/10',
       status: 'Great',
-      details: 'Your added sugars intake was well moderated, although Lemonade had relatively high added sugar.',
+      details: 'Your choices like Great Value Greek Plain Nonfat Yogurt had minimal added sugars. This is beneficial, as high added sugar intake can contribute to weight gain and dental problems. Keep it up!',
       icon: '/addedsugars.png',
       color: '#9e69ad',
       iconPosition: { x: 100, y: 300 },
     },
     fattyacids: {
-      name: 'Fatty Acids',
+      name: 'Saturated Fat',
       score: '9.73/10',
       status: 'Great',
-      details: 'Stick Butter had relatively high saturated fat.',
+      details: 'With minimal items high in saturated fats, you maintained a great score. Keeping saturated fat low is important in reducing the risk of heart disease. Well done!',
       icon: '/fattyacids.png',
       color: '#fbb616',
       iconPosition: { x: 300, y: 300 },
@@ -558,9 +558,9 @@ const ModerationSVG = () => {
             Positive Choices This Week
           </h2>
           <ul className="space-y-2 text-gray-900">
-            <li className="flex items-center gap-2">• Apple</li>
-            <li className="flex items-center gap-2">• Banana</li>
-            <li className="flex items-center gap-2">• Orange Juice</li>
+            <li className="flex items-center gap-2">• Great Value Greek Plain Nonfat Yogurt</li>
+            <li className="flex items-center gap-2">• Fresh Roma Tomato</li>
+            <li className="flex items-center gap-2">• Great Value Cut Green Beans</li>
           </ul>
         </div>
 
@@ -572,8 +572,9 @@ const ModerationSVG = () => {
           </h2>
           <p className="mb-4 text-gray-900">You indicated your goals were to <strong>reduce added sugar</strong>, <strong>reduce sodium</strong>, and <strong>increase vegetable intake</strong>.</p>
           <ul className="space-y-2 text-gray-900">
-            <li>• You made excellent progress with reducing added sugar, as reflected in your purchases of foods low in added sugars like <strong>Orange juice</strong> and <strong>Greek Yogurt</strong>. Keep it up!</li>
-            <li>• You purchased foods such as <strong>Chicken Broth</strong> and <strong>Italian Dressing</strong> which contributed to your sodium intake, not aligning with your goal to reduce sodium.</li>
+            <li>• Great work! You made great progress with your goals in reducing added sugar. This was due to your purchases of: Great Value Greek Plain Nonfat Yogurt. Keep it up!</li>
+            <li>• You did well in increasing vegetable intake with purchases like <strong>Fresh Roma Tomato</strong> and <strong>Great Value Cut Green Beans</strong>. Keep it up!</li>
+            <li>• Some choices this week didn't align with your dietary goal of reducing sodium. While there were some high-sodium items like <strong>Swanson 100% Natural Chicken Broth</strong>, the overall sodium intake should still be monitored.</li>
           </ul>
         </div>
 
@@ -614,15 +615,15 @@ const ModerationSVG = () => {
           </h2>
           <div className="space-y-4">
             <div className="p-4 bg-white rounded-lg">
-              <h3 className="font-bold text-gray-900">Canned Green Beans:</h3>
+              <h3 className="font-bold text-gray-900">Minute Instant White Rice:</h3>
               <p className="text-gray-900">
-                Next week, try more fresh or lightly cooked vegetables such as spinach or kale, offering higher nutrients and lower sodium content
+                Next week try substituting it with brown rice or quinoa for added fiber and nutrients.
               </p>
             </div>
             <div className="p-4 bg-white rounded-lg">
-              <h3 className="font-bold text-gray-900">Instant White Rice:</h3>
+              <h3 className="font-bold text-gray-900">Swanson 100% Natural Chicken Broth:</h3>
               <p className="text-gray-900">
-                Consider whole grain alternatives like brown rice or quinoa to improve fiber intake. 
+              Consider low-sodium chicken broth or making your own for reduced sodium content.
               </p>
             </div>
           </div>
@@ -635,13 +636,14 @@ const ModerationSVG = () => {
             Your Progress
           </h2>
           <div className="p-4 bg-white rounded-lg">
-            <div className="mb-4">
+            <div className="mb-4 flex justify-center">
               <Image 
                 src="/progress.png" 
                 alt="Progress Graph" 
-                width={100}
-                height={50}
-                className="w-full rounded-lg"
+                width={500}
+                height={400}
+                className="rounded-lg"
+                style={{ width: '600px', height: '400px' }} 
               />
             </div>
             <p className="text-gray-900 font-bold text-center">
