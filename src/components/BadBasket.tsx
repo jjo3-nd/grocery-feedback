@@ -573,8 +573,8 @@ const ModerationSVG = () => {
           <p className="mb-4 text-gray-900">You indicated your goals were to <strong>reduce added sugar</strong>, <strong>reduce sodium</strong>, and <strong>increase vegetable intake</strong>.</p>
           <ul className="space-y-2 text-gray-900">
             <li>• Great work! You made great progress with your goals in increasing vegetable intake. This was due to your purchases of <strong>Great Value Cut Green Beans</strong>, <strong>Fresh Tomato on the Vine</strong>, and <strong>Great Value Black Beans</strong>. Keep it up!</li>
-            <li>• Some choices this week didn't align with your dietary goals. You purchased <strong>Land O Lakes Salted Stick Butter</strong> and <strong>Great Value Reduced Fat Mayonnaise with Olive Oil</strong> which didn’t contribute to your goal of reducing sodium.</li>
-            <li>• Some choices this week didn't align with your dietary goals. You purchased <strong>Kellogg's Cocoa Krispies Breakfast Cereal</strong>, which didn’t contribute to your goal of reducing added sugar.</li>
+            <li>• Some choices this week didn't align with your dietary goals. You purchased <strong>Land O Lakes Salted Stick Butter</strong> and <strong>Great Value Reduced Fat Mayonnaise with Olive Oil</strong> which didn't contribute to your goal of reducing sodium.</li>
+            <li>• Some choices this week didn't align with your dietary goals. You purchased <strong>Kellogg's Cocoa Krispies Breakfast Cereal</strong>, which didn't contribute to your goal of reducing added sugar.</li>
           </ul>
         </div>
 
