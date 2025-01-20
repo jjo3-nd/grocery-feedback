@@ -23,6 +23,7 @@ const BadBasket = () => {
   
   const plateData = {
     vegetables: {
+      name: 'Vegetables',
       score: '10/10',
       status: 'Great',
       details: 'You had a great score due to Great Value Cut Green Beans and Fresh Tomato on the Vine. Vegetables are great to include in your diet as they are high in essential vitamins and minerals and low in calories, supporting overall health. Keep it up!',
@@ -31,6 +32,7 @@ const BadBasket = () => {
       iconPosition: { x: 100, y: 100 },
     },
     fruits: {
+      name: 'Fruits',
       score: '6.26/10',
       status: 'Moderate',
       details: "You included Mott's 100% Juice Original Apple Juice, which contributed to your total fruit score. Including more whole fruits is beneficial because they provide fiber that juice lacks.",
@@ -39,6 +41,7 @@ const BadBasket = () => {
       iconPosition: { x: 300, y: 100 },
     },
     protein: {
+      name: 'Protein',
       score: '10/10',
       status: 'Great',
       details: 'Your score was high due to purchases of Great Value Black Beans and 80% Lean / 20% Fat Ground Beef Chuck. Including various protein sources can enhance nutrient intake. Well done!',
@@ -47,6 +50,7 @@ const BadBasket = () => {
       iconPosition: { x: 100, y: 300 },
     },
     grains: {
+      name: 'Grains',
       score: '4.44/10',
       status: 'Moderate',
       details: 'Your score included Great Value Instant Oats for whole grains, but had Minute Instant White Rice contributing to a lower whole grain score. Replacing refined grains with whole grains is beneficial for increasing nutrient and fiber content.',
@@ -55,6 +59,7 @@ const BadBasket = () => {
       iconPosition: { x: 300, y: 300 },
     },
     dairy: {
+      name: 'Dairy',
       score: '7.35/10',
       status: 'Great',
       details: 'You achieved a good score with foods like Great Value Milk Whole Vitamin D and Great Value Original Strawberry Lowfat Yogurt. Dairy provides essential nutrients like calcium and vitamin D.',
@@ -63,9 +68,10 @@ const BadBasket = () => {
       iconPosition: { x: 450, y: 200 },
     },
     unsaturatedfat: {
+      name: 'Unsaturated Fat',
       score: '1.56/10',
       status: 'Needs Improvement',
-      details: 'You had a low score in fatty acids this week. Fatty acids, especially omega-3s, have been shown to improve heart health by reducing the risk of cardiovascular diseases. Try getting more sources next week.',
+      details: 'You had a low score in unsaturated fat this week. Unsaturated fat, especially omega-3s, have been shown to improve heart health by reducing the risk of cardiovascular diseases. Try getting more sources next week.',
       icon: '/unsaturatedfat.png',
       color: '#fbb616',
       iconPosition: { x: 300, y: 100 },
@@ -342,7 +348,7 @@ const BadBasket = () => {
             
             <div className="text-gray-900">
             <h3 className="font-bold capitalize">
-              {selectedSection}: {plateData[selectedSection].score} {"  "}
+              {plateData[selectedSection].name}: {plateData[selectedSection].score} {"  "}
               <div 
                 className="text-sm font-bold mb-2 px-2 py-1 rounded-full inline-block"
                 style={{ 

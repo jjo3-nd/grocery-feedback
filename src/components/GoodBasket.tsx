@@ -23,6 +23,7 @@ const GoodBasket = () => {
   
   const plateData = {
     vegetables: {
+      name: 'Vegetables',
       score: '10/10',
       status: 'Great',
       details: 'You had a great score due to Fresh Roma Tomato and Great Value Cut Green Beans. Vegetables are great to include in your diet as they are high in essential vitamins and minerals and low in calories, supporting overall health. Keep it up!',
@@ -31,6 +32,7 @@ const GoodBasket = () => {
       iconPosition: { x: 100, y: 100 },
     },
     fruits: {
+      name: 'Fruits',
       score: '10/10',
       status: 'Great',
       details: 'Your purchase of Fresh Gala Apples and Great Value Sliced Bananas (Frozen) contributed to a high fruit score. Fruits are essential for providing vitamins, minerals, and fiber. Keep it up!',
@@ -39,6 +41,7 @@ const GoodBasket = () => {
       iconPosition: { x: 300, y: 100 },
     },
     protein: {
+      name:'Protein',
       score: '10/10',
       status: 'Great',
       details: 'Your purchase of Perdue Harvestland Fresh Ground Turkey and Great Value Black Beans contributed to a high protein score. Protein supports muscle maintenance and repair. Continue enjoying a variety of protein sources!',
@@ -47,6 +50,7 @@ const GoodBasket = () => {
       iconPosition: { x: 100, y: 300 },
     },
     grains: {
+      name:'Grains',
       score: '5.17/10',
       status: 'Moderate',
       details: 'The purchase of Quaker, Quick 1 Minute Oats contributed to your whole grain intake, but Minute Instant White Rice, a refined grain, lowered the score. Whole grains provide more fiber and nutrients compared to refined grains.',
@@ -55,6 +59,7 @@ const GoodBasket = () => {
       iconPosition: { x: 300, y: 300 },
     },
     dairy: {
+      name:'Dairy',
       score: '8.05/10',
       status: 'Great',
       details: 'Great Value Greek Plain Nonfat Yogurt and Great Value, 2% Reduced Fat Milk contributed positively to your dairy score. Dairy is an important source of calcium and vitamin D essential for bone health. Well done!',
@@ -63,6 +68,7 @@ const GoodBasket = () => {
       iconPosition: { x: 450, y: 200 },
     },
     unsaturatedfat: {
+      name:'Unsaturated Fat',
       score: '6.53/10',
       status: 'Moderate',
       details: 'You had a moderate fatty acid score this week. Foods like Great Value Reduced Fat Mayonnaise with Olive Oil contributed to this. Fatty acids, especially omega-3s, improve heart health. Consider balancing your fats better.',
@@ -343,7 +349,7 @@ const GoodBasket = () => {
             
             <div className="text-gray-900">
             <h3 className="font-bold capitalize">
-              {selectedSection}: {plateData[selectedSection].score} {"  "}
+              {plateData[selectedSection].name}: {plateData[selectedSection].score} {"  "}
               <div 
                 className="text-sm font-bold mb-2 px-2 py-1 rounded-full inline-block"
                 style={{ 
