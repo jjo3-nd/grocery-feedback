@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Head from 'next/head';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 const bungee = Bungee({
   weight: '400',
