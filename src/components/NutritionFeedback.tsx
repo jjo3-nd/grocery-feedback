@@ -53,7 +53,71 @@ const NutritionFeedback = () => {
     saturatedfat: ModerationDataSection;
   }
 
-  const [jsonData, setJsonData] = useState<any>(null);
+  interface JsonData {
+    section1: [{
+      good_choice_item1: string;
+      good_choice_reason1: string;
+      good_choice_item2: string;
+      good_choice_reason2: string;
+      good_choice_item3: string;
+      good_choice_reason3: string;
+    }];
+    section2: [{
+      user_goals: string;
+      goal_feedback1: string;
+      goal_feedback_items1: string;
+      goal_feedback2: string;
+      goal_feedback_items2: string;
+      goal_feedback3: string;
+      goal_feedback_items3: string;
+    }];
+    section3: [{
+      total_HEI_score: string;
+      vegetables_score: string;
+      vegetables_score_label: string;
+      vegetables_explanation: string;
+      fruits_score: string;
+      fruits_score_label: string;
+      fruits_explanation: string;
+      protein_score: string;
+      protein_score_label: string;
+      protein_explanation: string;
+      grains_score: string;
+      grains_score_label: string;
+      dairy_score: string;
+      dairy_score_label: string;
+      dairy_explanation: string;
+      fattyacids_score: string;
+      fattyacids_score_label: string;
+      fattyacids_explanation: string;
+    }];
+    section4: [{
+      refinedgrains_score: string;
+      refinedgrains_score_label: string;
+      refinedgrains_explanation: string;
+      sodium_score: string;
+      sodium_score_label: string;
+      sodium_explanation: string;
+      addedsugars_score: string;
+      addedsugars_score_label: string;
+      addedsugars_explanation: string;
+      saturatedfats_score: string;
+      saturatedfats_score_label: string;
+      saturatedfats_explanation: string;
+    }];
+    section5: [{
+      recommendation1: string;
+      food_to_substitute1: string;
+      recommendation2: string;
+      food_to_substitute2: string;
+      recommendation3: string;
+      food_to_substitute3: string;
+    }];
+  }
+  
+  // Then update the useState:
+  const [jsonData, setJsonData] = useState<JsonData | null>(null);
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedSection, setSelectedSection] = useState<keyof PlateData | null>(null);
@@ -87,7 +151,7 @@ const NutritionFeedback = () => {
       </div>
     );
   }
-  
+
   if (isLoading || !jsonData) {
     return <div>Loading...</div>;
   }
