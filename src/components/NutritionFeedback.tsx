@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -15,89 +15,167 @@ const openSans = Open_Sans({
   subsets: ['latin'],
 });
 
+
+
 const NutritionFeedback = () => {
-  const [selectedSection, setSelectedSection] = useState<keyof typeof plateData | null>(null); // Keep this one
-  const [selectedModerationSection, setSelectedModerationSection] = useState<keyof typeof moderationData | null>(null); // Keep this one
+  interface PlateDataSection {
+    name: string;
+    score: string;
+    status: string;
+    details: string;
+    icon: string;
+    color: string;
+    iconPosition: { x: number; y: number };
+  } 
+  
+  interface PlateData {
+    vegetables: PlateDataSection;
+    fruits: PlateDataSection;
+    protein: PlateDataSection;
+    grains: PlateDataSection;
+    dairy: PlateDataSection;
+    unsaturatedfat: PlateDataSection;
+  }
+
+  interface ModerationDataSection {
+    name: string;
+    score: string;
+    status: string;
+    details: string;
+    icon: string;
+    color: string;
+    iconPosition: { x: number; y: number };
+  } 
+  
+  interface ModerationData {
+    refinedgrains: ModerationDataSection;
+    sodium: ModerationDataSection;
+    addedsugars: ModerationDataSection;
+    saturatedfat: ModerationDataSection;
+  }
+
+  const [jsonData, setJsonData] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedSection, setSelectedSection] = useState<keyof PlateData | null>(null);
+  const [selectedModerationSection, setSelectedModerationSection] = useState<keyof ModerationData | null>(null);
 
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   
+  useEffect(() => {
+    const loadNutritionData = async () => {
+      try {
+        const response = await fetch('/data/openai_response.json');
+        if (!response.ok) {
+          throw new Error('Failed to fetch nutrition data');
+        }
+        const data = await response.json();
+        setJsonData(data);
+        setIsLoading(false);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
+        setIsLoading(false);
+      }
+    };
+
+    loadNutritionData();
+  }, []);
+
+  if (isLoading || !jsonData) {
+    return <div>Loading...</div>;
+  }
+
   const plateData = {
     vegetables: {
-      score: '10/10',
-      status: 'Great',
-      details: 'You had a great score due to Fresh Roma Tomato and Great Value Cut Green Beans. Vegetables are great to include in your diet as they are high in essential vitamins and minerals and low in calories, supporting overall health. Keep it up!',
+      name: 'Vegetables',
+      score: jsonData.section3[0].vegetables_score,
+      status: jsonData.section3[0].vegetables_score_label,
+      details: jsonData.section3[0].vegetables_explanation,
       icon: '/vegetables.png',
       color: '#74B744',
       iconPosition: { x: 100, y: 100 },
     },
     fruits: {
-      score: '10/10',
-      status: 'Great',
-      details: 'Your purchase of Fresh Gala Apples and Great Value Sliced Bananas (Frozen) contributed to a high fruit score. Fruits are essential for providing vitamins, minerals, and fiber. Keep it up!',
+      name: 'Fruits',
+      score: jsonData.section3[0].fruits_score,
+      status: jsonData.section3[0].fruits_score_label,
+      details: jsonData.section3[0].fruits_explanation,
       icon: '/fruits.png',
       color: '#D62128',
       iconPosition: { x: 300, y: 100 },
     },
     protein: {
-      score: '10/10',
-      status: 'Great',
-      details: 'Your purchase of Perdue Harvestland Fresh Ground Turkey and Great Value Black Beans contributed to a high protein score. Protein supports muscle maintenance and repair. Continue enjoying a variety of protein sources!',
+      name: 'Protein',
+      score: jsonData.section3[0].protein_score,
+      status: jsonData.section3[0].protein_score_label,
+      details: jsonData.section3[0].protein_explanation,
       icon: '/protein.png',
       color: '#5F4994',
       iconPosition: { x: 100, y: 300 },
     },
     grains: {
-      score: '5.17/10',
-      status: 'Moderate',
-      details: 'The purchase of Quaker, Quick 1 Minute Oats contributed to your whole grain intake, but Minute Instant White Rice, a refined grain, lowered the score. Whole grains provide more fiber and nutrients compared to refined grains.',
+      name:'Grains',
+      score: jsonData.section3[0].grains_score,
+      status: jsonData.section3[0].grains_score_label,
+      details: jsonData.section3[0].protein_explanation,
       icon: '/grains.png',
       color: '#E67323',
       iconPosition: { x: 300, y: 300 },
     },
     dairy: {
-      score: '8.05/10',
-      status: 'Great',
-      details: 'Great Value Greek Plain Nonfat Yogurt and Great Value, 2% Reduced Fat Milk contributed positively to your dairy score. Dairy is an important source of calcium and vitamin D essential for bone health. Well done!',
+      name:'Dairy',
+      score: jsonData.section3[0].dairy_score,
+      status: jsonData.section3[0].dairy_score_label,
+      details: jsonData.section3[0].dairy_explanation,
       icon: '/dairy.png',
       color: '#5083C5',
       iconPosition: { x: 450, y: 200 },
     },
-  };
+    unsaturatedfat: {
+      name:'Unsaturated Fat',
+      score: jsonData.section3[0].fattyacids_score,
+      status: jsonData.section3[0].fattyacids_score_label,
+      details: jsonData.section3[0].fattyacids_explanation,
+      icon: '/unsaturatedfat.png',
+      color: '#fbb616',
+      iconPosition: { x: 300, y: 100 },
+    },
+  }
 
   const moderationData = {
     refinedgrains: {
       name: 'Refined Grains',
-      score: '10/10',
-      status: 'Great',
-      details: 'Minimal purchase of refined grains like white rice ensured an excellent score. Refined grains, such as white rice, are lower in fiber and nutrients. Try focusing on whole grains for extra health benefits.',
+      score: jsonData.section4[0].refinedgrains_score,
+      status: jsonData.section4[0].refinedgrains_score_label,
+      details: jsonData.section4[0].refinedgrains_explanation,
       icon: '/refinedgrains.png',
       color: '#e7138c',
       iconPosition: { x: 100, y: 100 },
     },
     sodium: {
       name: 'Sodium',
-      score: '6.49/10',
-      status: 'Moderate',
-      details: 'Some high-sodium items like Swanson 100% Natural Chicken Broth were purchased. Reducing the intake of high-sodium products can prevent high blood pressure and related diseases. Aim for more low-sodium products next time.',
+      score: jsonData.section4[0].sodium_score,
+      status: jsonData.section4[0].sodium_score_label,
+      details: jsonData.section4[0].sodium_explanation,
       icon: '/sodium.png',
       color: '#5ec9e3',
       iconPosition: { x: 300, y: 100 },
     },
     addedsugars: {
       name: 'Added Sugars',
-      score: '10/10',
-      status: 'Great',
-      details: 'Your choices like Great Value Greek Plain Nonfat Yogurt had minimal added sugars. This is beneficial, as high added sugar intake can contribute to weight gain and dental problems. Keep it up!',
+      score: jsonData.section4[0].addedsugars_score,
+      status: jsonData.section4[0].addedsugars_score_label,
+      details: jsonData.section4[0].addedsugars_explanation,
       icon: '/addedsugars.png',
       color: '#9e69ad',
       iconPosition: { x: 100, y: 300 },
     },
-    fattyacids: {
+    saturatedfat: {
       name: 'Saturated Fat',
-      score: '9.73/10',
-      status: 'Great',
-      details: 'With minimal items high in saturated fats, you maintained a great score. Keeping saturated fat low is important in reducing the risk of heart disease. Well done!',
-      icon: '/fattyacids.png',
+      score: jsonData.section4[0].saturatedfats_score,
+      status: jsonData.section4[0].saturatedfats_score_label,
+      details: jsonData.section4[0].saturatedfats_explanation,
+      icon: '/saturatedfat.png',
       color: '#fbb616',
       iconPosition: { x: 300, y: 300 },
     },
@@ -282,11 +360,31 @@ const NutritionFeedback = () => {
               fill={plateData.dairy.color}
               className="transition-opacity hover:opacity-80"
             />
-            <svg x="400" y="70" width="60" height="60">
+            <svg x="380" y="50" width="100" height="100">
               <image
                 href={plateData.dairy.icon}
-                width="60"
-                height="60"
+                width="100"
+                height="100"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+          </g>
+
+
+          {/* Unsaturated Fat circle */}
+          <g onClick={() => handleSectionClick('unsaturatedfat')} className="cursor-pointer">
+            <circle 
+              cx="430" 
+              cy="300" 
+              r="50" 
+              fill={plateData.unsaturatedfat.color}
+              className="transition-opacity hover:opacity-80"
+            />
+            <svg x="380" y="250" width="100" height="100">
+              <image
+                href={plateData.unsaturatedfat.icon}
+                width="100"
+                height="100"
                 preserveAspectRatio="xMidYMid meet"
               />
             </svg>
@@ -315,7 +413,7 @@ const NutritionFeedback = () => {
             
             <div className="text-gray-900">
             <h3 className="font-bold capitalize">
-              {selectedSection}: {plateData[selectedSection].score} {"  "}
+              {plateData[selectedSection].name}: {plateData[selectedSection].score} {"  "}
               <div 
                 className="text-sm font-bold mb-2 px-2 py-1 rounded-full inline-block"
                 style={{ 
@@ -357,7 +455,7 @@ const ModerationSVG = () => {
       x: centerX - quadrantRadius * 0.7,  // bottom-left
       y: centerY + quadrantRadius * 0.7
     },
-    fattyacids: {
+    saturatedfat: {
       x: centerX + quadrantRadius * 0.7,  // bottom-right
       y: centerY + quadrantRadius * 0.7
     }
@@ -444,21 +542,21 @@ const ModerationSVG = () => {
           </svg>
         </g>
 
-        {/* Fatty Acids (bottom-right) */}
-        <g onClick={() => handleModerationSectionClick('fattyacids')} className="cursor-pointer">
+        {/* saturated fat (bottom-right) */}
+        <g onClick={() => handleModerationSectionClick('saturatedfat')} className="cursor-pointer">
           <path 
             d="M200,200 L200,400 A200,200 0 0,0 400,200 Z" 
-            fill={moderationData.fattyacids.color}
+            fill={moderationData.saturatedfat.color}
             className="transition-all hover:opacity-60"
           />
           <svg 
-            x={centerPoints.fattyacids.x - halfIconSize} 
-            y={centerPoints.fattyacids.y - halfIconSize} 
+            x={centerPoints.saturatedfat.x - halfIconSize} 
+            y={centerPoints.saturatedfat.y - halfIconSize} 
             width={iconSize} 
             height={iconSize}
           >
             <image
-              href={moderationData.fattyacids.icon}
+              href={moderationData.saturatedfat.icon}
               width={iconSize}
               height={iconSize}
               preserveAspectRatio="xMidYMid meet"
@@ -540,14 +638,6 @@ const ModerationSVG = () => {
                 Grocery Feedback
               </h1>
             </div>
-            <div className="absolute right-0">
-              <Link 
-                href="/upload"
-                className={`${bungee.className} bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors`}
-              >
-                Upload Receipt
-              </Link>
-            </div>
           </div>
         </div>
 
@@ -558,9 +648,9 @@ const ModerationSVG = () => {
             Positive Choices This Week
           </h2>
           <ul className="space-y-2 text-gray-900">
-            <li className="flex items-center gap-2">• Great Value Greek Plain Nonfat Yogurt</li>
-            <li className="flex items-center gap-2">• Fresh Roma Tomato</li>
-            <li className="flex items-center gap-2">• Great Value Cut Green Beans</li>
+            <li className="flex items-center gap-2">• <strong>{jsonData.section1[0].good_choice_item1}</strong>{jsonData.section1[0].good_choice_reason1}</li>
+            <li className="flex items-center gap-2">• <strong>{jsonData.section1[0].good_choice_item2}</strong>{jsonData.section1[0].good_choice_reason2}</li>
+            <li className="flex items-center gap-2">• <strong>{jsonData.section1[0].good_choice_item3}</strong>{jsonData.section1[0].good_choice_reason3}</li>
           </ul>
         </div>
 
@@ -570,11 +660,32 @@ const ModerationSVG = () => {
               style={{ color: headingColors.goalProgress }}>
             Goal Progress
           </h2>
-          <p className="mb-4 text-gray-900">You indicated your goals were to <strong>reduce added sugar</strong>, <strong>reduce sodium</strong>, and <strong>increase vegetable intake</strong>.</p>
+          <p className="mb-4 text-gray-900">You indicated your goals were to <strong>{jsonData.section2[0].user_goals}</strong>.</p>
           <ul className="space-y-2 text-gray-900">
-            <li>• Great work! You made great progress with your goals in reducing added sugar. This was due to your purchases of: Great Value Greek Plain Nonfat Yogurt. Keep it up!</li>
-            <li>• You did well in increasing vegetable intake with purchases like <strong>Fresh Roma Tomato</strong> and <strong>Great Value Cut Green Beans</strong>. Keep it up!</li>
-            <li>• Some choices this week didn't align with your dietary goal of reducing sodium. While there were some high-sodium items like <strong>Swanson 100% Natural Chicken Broth</strong>, the overall sodium intake should still be monitored.</li>
+            <li className="flex items-center gap-2">
+              <span dangerouslySetInnerHTML={{ 
+                __html: '• ' + jsonData.section2[0].goal_feedback1.replace(
+                  jsonData.section2[0].goal_feedback_items1,
+                  `<strong>${jsonData.section2[0].goal_feedback_items1}</strong>`
+                )
+              }} />
+            </li>
+            <li className="flex items-center gap-2">
+              <span dangerouslySetInnerHTML={{ 
+                __html: '• ' + jsonData.section2[0].goal_feedback2.replace(
+                  jsonData.section2[0].goal_feedback_items2,
+                  `<strong>${jsonData.section2[0].goal_feedback_items2}</strong>`
+                )
+              }} />
+            </li>
+            <li className="flex items-center gap-2">
+              <span dangerouslySetInnerHTML={{ 
+                __html: '• ' + jsonData.section2[0].goal_feedback3.replace(
+                  jsonData.section2[0].goal_feedback_items3,
+                  `<strong>${jsonData.section2[0].goal_feedback_items3}</strong>`
+                )
+              }} />
+            </li>
           </ul>
         </div>
 
@@ -584,7 +695,7 @@ const ModerationSVG = () => {
               style={{ color: headingColors.myPlate }}>
             MyPlate Breakdown
           </h2>
-          <div className="score text-center m-4"><strong>Overall Nutrition Score: 85.96 / 100</strong></div>
+          <div className="score text-center m-4"><strong>Overall Nutrition Score: {jsonData.section3[0].total_HEI_score}</strong></div>
           <MyPlateSVG />
           <div className="text-center mt-4 text-gray-500 text-sm">
             Tap to Explore Each Group
@@ -615,43 +726,37 @@ const ModerationSVG = () => {
           </h2>
           <div className="space-y-4">
             <div className="p-4 bg-white rounded-lg">
-              <h3 className="font-bold text-gray-900">Minute Instant White Rice:</h3>
-              <p className="text-gray-900">
-                Next week try substituting it with brown rice or quinoa for added fiber and nutrients.
-              </p>
+              <li className="flex items-center gap-2">
+                <span dangerouslySetInnerHTML={{ 
+                  __html: jsonData.section5[0].recommendation1.replace(
+                    jsonData.section5[0].food_to_substitute1,
+                    `<strong>${jsonData.section5[0].food_to_substitute1}</strong>`
+                  )
+                }} />
+              </li>
             </div>
             <div className="p-4 bg-white rounded-lg">
-              <h3 className="font-bold text-gray-900">Swanson 100% Natural Chicken Broth:</h3>
-              <p className="text-gray-900">
-              Consider low-sodium chicken broth or making your own for reduced sodium content.
-              </p>
+              <li className="flex items-center gap-2">
+                <span dangerouslySetInnerHTML={{ 
+                  __html: jsonData.section5[0].recommendation2.replace(
+                    jsonData.section5[0].food_to_substitute2,
+                    `<strong>${jsonData.section5[0].food_to_substitute2}</strong>`
+                  )
+                }} />
+              </li>
+            </div>
+            <div className="p-4 bg-white rounded-lg">
+              <li className="flex items-center gap-2">
+                <span dangerouslySetInnerHTML={{ 
+                  __html: jsonData.section5[0].recommendation3.replace(
+                    jsonData.section5[0].food_to_substitute3,
+                    `<strong>${jsonData.section5[0].food_to_substitute3}</strong>`
+                  )
+                }} />
+              </li>
             </div>
           </div>
         </div>
-
-        {/* Progress Section */}
-        <div className="bg-gray-50 p-4 rounded-lg">
-          <h2 className={`${bungee.className} text-xl mb-4 text-center`}
-              style={{ color: headingColors.progress }}>
-            Your Progress
-          </h2>
-          <div className="p-4 bg-white rounded-lg">
-            <div className="mb-4 flex justify-center">
-              <Image 
-                src="/progress.png" 
-                alt="Progress Graph" 
-                width={500}
-                height={400}
-                className="rounded-lg"
-                style={{ width: '600px', height: '400px' }} 
-              />
-            </div>
-            <p className="text-gray-900 font-bold text-center">
-              Week 3: Congrats! Your HEI Score has increased from last week
-            </p>
-          </div>
-        </div>
-
       </div>
     </div>
     </>

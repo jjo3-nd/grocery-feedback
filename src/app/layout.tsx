@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import React from "react";
 
 export const metadata: Metadata = {
-  title: "Nutrition Feedback",
-  description: "Nutrition feedback and analysis application",
+  title: "Grocery Shopping Feedback",
+  description: "Grocery shopping feedback and analysis application",
 };
 
 export default function RootLayout({
