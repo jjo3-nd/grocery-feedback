@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Head from 'next/head';
-import Link from 'next/link';
 
 const bungee = Bungee({
   weight: '400',
@@ -81,6 +80,14 @@ const NutritionFeedback = () => {
     loadNutritionData();
   }, []);
 
+  if (error) {
+    return (
+      <div className="p-4 bg-red-50 text-red-600 rounded-lg">
+        Error loading data: {error}
+      </div>
+    );
+  }
+  
   if (isLoading || !jsonData) {
     return <div>Loading...</div>;
   }
