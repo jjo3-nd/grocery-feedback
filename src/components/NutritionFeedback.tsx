@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Head from 'next/head';
+// test
 
 const bungee = Bungee({
   weight: '400',
