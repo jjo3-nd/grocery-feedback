@@ -15,9 +15,13 @@ const openSans = Open_Sans({
   subsets: ['latin'],
 });
 
+interface NutritionFeedbackProps {
+  feedbackId: string;
+  weekId?: string;
+}
 
 
-const NutritionFeedback = () => {
+const NutritionFeedback = ({ feedbackId, weekId }: NutritionFeedbackProps) => {
   interface PlateDataSection {
     name: string;
     score: string;
@@ -65,12 +69,10 @@ const NutritionFeedback = () => {
     }];
     section2: [{
       user_goals: string;
-      goal_feedback1: string;
-      goal_feedback_items1: string;
-      goal_feedback2: string;
-      goal_feedback_items2: string;
-      goal_feedback3: string;
-      goal_feedback_items3: string;
+      goal_feedback: Array<{
+        feedback_text: string;
+        feedback_items: string;
+      }>;
     }];
     section3: [{
       total_HEI_score: string;
@@ -129,7 +131,12 @@ const NutritionFeedback = () => {
   useEffect(() => {
     const loadNutritionData = async () => {
       try {
-        const response = await fetch('/data/openai_response.json');
+        // Construct the path based on whether weekId is provided
+        const dataPath = weekId 
+          ? `/data/${feedbackId}/${weekId}/openai_response.json`
+          : `/data/${feedbackId}/openai_response.json`;
+
+        const response = await fetch(dataPath);
         if (!response.ok) {
           throw new Error('Failed to fetch nutrition data');
         }
@@ -143,7 +150,7 @@ const NutritionFeedback = () => {
     };
 
     loadNutritionData();
-  }, []);
+  }, [feedbackId, weekId]);
 
   if (error) {
     return (
@@ -707,8 +714,11 @@ const ModerationSVG = () => {
             <div className="flex-1 text-center">
               <h1 className={`${bungee.className} text-2xl`} 
                   style={{ color: headingColors.title }}>
-                Grocery Feedback
+                Grocery Feedback: {weekId}
               </h1>
+              <div className="text-center mt-4 mb-1 text-gray-500 text-sm max-w-2xl mx-auto">
+                This is based on your Walmart shopping only 
+              </div>
             </div>
           </div>
         </div>
@@ -734,32 +744,19 @@ const ModerationSVG = () => {
           </h2>
           <p className="mb-4 text-gray-900">You indicated your goals were to <strong>{jsonData.section2[0].user_goals}</strong>.</p>
           <ul className="space-y-2 text-gray-900">
-            <li className="flex items-center gap-2">
-              <span dangerouslySetInnerHTML={{ 
-                __html: '• ' + jsonData.section2[0].goal_feedback1.replace(
-                  jsonData.section2[0].goal_feedback_items1,
-                  `<strong>${jsonData.section2[0].goal_feedback_items1}</strong>`
-                )
-              }} />
-            </li>
-            <li className="flex items-center gap-2">
-              <span dangerouslySetInnerHTML={{ 
-                __html: '• ' + jsonData.section2[0].goal_feedback2.replace(
-                  jsonData.section2[0].goal_feedback_items2,
-                  `<strong>${jsonData.section2[0].goal_feedback_items2}</strong>`
-                )
-              }} />
-            </li>
-            <li className="flex items-center gap-2">
-              <span dangerouslySetInnerHTML={{ 
-                __html: '• ' + jsonData.section2[0].goal_feedback3.replace(
-                  jsonData.section2[0].goal_feedback_items3,
-                  `<strong>${jsonData.section2[0].goal_feedback_items3}</strong>`
-                )
-              }} />
-            </li>
+            {jsonData.section2[0].goal_feedback.map((feedback, index) => (
+              <li key={index} className="flex items-center gap-2">
+                <span dangerouslySetInnerHTML={{ 
+                  __html: '• ' + feedback.feedback_text.replace(
+                    feedback.feedback_items,
+                    `<strong>${feedback.feedback_items}</strong>`
+                  )
+                }} />
+              </li>
+            ))}
           </ul>
         </div>
+
 
         {/* MyPlate Section */}
         <div className="bg-gray-50 p-4 rounded-lg mb-6">
@@ -768,6 +765,18 @@ const ModerationSVG = () => {
             MyPlate Breakdown
           </h2>
           <div className="score text-center m-4"><strong>Overall Nutrition Score: {jsonData.section3[0].total_HEI_score}</strong></div>
+          <div className="text-center mt-4 mb-8 text-gray-500 text-sm max-w-2xl mx-auto">
+            The Nutrition Score is calculated by the Healthy Eating Index which measures how well your food basket is aligned with the Dietary Guidelines for Americans.
+            <br />
+            It assumes you will eat 1 serving of each of the foods purchased.
+            <br />
+            For more information see <a 
+              href="https://www.fns.usda.gov/cnpp/hei-scores-americans" 
+              className="text-blue-500 hover:underline" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >here</a>
+          </div>
           <MyPlateSVG />
           <div className="text-center mt-4 text-gray-500 text-sm">
             Tap to Explore Each Group
