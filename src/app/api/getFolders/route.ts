@@ -15,7 +15,7 @@ export async function GET() {
 
     // Return the list of folders
     return NextResponse.json({ folders });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to read folders' }, { status: 500 });
   }
 }

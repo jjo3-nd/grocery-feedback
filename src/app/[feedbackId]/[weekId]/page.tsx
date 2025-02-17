@@ -15,7 +15,7 @@ export default function WeeklyFeedbackPage() {
         <div className="absolute right-4 top-4 z-10">
           <Link
             href={`/${feedbackId}/week1-2`}
-            className="inline-flex items-center px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-500 transition-colors shadow-sm"
+            className="inline-flex items-center px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors shadow-sm"
             target="_blank"
             rel="noopener noreferrer"
           >

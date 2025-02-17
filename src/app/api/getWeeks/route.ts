@@ -22,7 +22,7 @@ export async function GET(request: Request) {
 
     // Return the list of weeks
     return NextResponse.json({ weeks });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to read weeks' }, { status: 500 });
   }
 }

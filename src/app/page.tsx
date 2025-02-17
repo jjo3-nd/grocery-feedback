@@ -47,8 +47,8 @@ export default function Home() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Grocery Feedback Reports</h1>
-      {/* <div className="space-y-2">
+      <h1 className="text-2xl font-bold mb-4">Available Feedback Reports</h1>
+      <div className="space-y-2">
         {folderStructure.folders.map((folder) => (
           <Link
             key={folder}
@@ -58,7 +58,7 @@ export default function Home() {
             {folder}
           </Link>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }
