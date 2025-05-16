@@ -3,9 +3,14 @@ import "./globals.css";
 import React from "react";
 
 import ReactGA from 'react-ga4';
-const TRACKING_ID = "G-0ZJD8NMBE7"; // your Measurement ID
+const TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
-ReactGA.initialize(TRACKING_ID);
+
+if (TRACKING_ID) {
+  ReactGA.initialize(TRACKING_ID);
+} else {
+  console.warn("Google Analytics Tracking ID is not set. Tracking will be disabled.");
+}
 
 
 export const metadata: Metadata = {
