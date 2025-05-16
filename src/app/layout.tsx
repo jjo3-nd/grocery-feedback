@@ -7,12 +7,7 @@ const TRACKING_ID = "G-0ZJD8NMBE7"; // your Measurement ID
 
 ReactGA.initialize([
   {
-    trackingId: "your GA measurement id",
-    gaOptions: {...}, // optional
-    gtagOptions: {...}, // optional
-  },
-  {
-    trackingId: "G-0ZJD8NMBE7",
+    trackingId: "G-0ZJD8NMBE7"
   },
 ]);
 
