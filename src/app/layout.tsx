@@ -8,6 +8,7 @@ const TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 if (TRACKING_ID) {
   ReactGA.initialize(TRACKING_ID);
+  console.log("Google Analytics initialized with ID:", TRACKING_ID);
 } else {
   console.warn("Google Analytics Tracking ID is not set. Tracking will be disabled.");
 }
