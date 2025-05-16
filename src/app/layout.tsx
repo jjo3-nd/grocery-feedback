@@ -1,6 +1,6 @@
 "use client";
 
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import "./globals.css";
 import React, { useEffect } from "react";
 import ReactGA from 'react-ga4';
