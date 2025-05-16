@@ -4,7 +4,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Head from 'next/head';
-// test
+import ReactGA from 'react-ga4';
+
+const TRACKING_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const bungee = Bungee({
   weight: '400',
@@ -291,14 +293,70 @@ const NutritionFeedback = ({ feedbackId, weekId }: NutritionFeedbackProps) => {
     }
   };
 
+  // const handleSectionClick = (section: keyof typeof plateData) => {
+  //   setSelectedSection(section === selectedSection ? null : section);
+  // };
+
+  // const handleModerationSectionClick = (section: keyof typeof moderationData) => {
+  //   setSelectedModerationSection(section === selectedModerationSection ? null : section);
+  // };
+
+
   const handleSectionClick = (section: keyof typeof plateData) => {
-    setSelectedSection(section === selectedSection ? null : section);
+    const newSelectedSection = section === selectedSection ? null : section;
+    setSelectedSection(newSelectedSection);
+  
+    // --- Google Analytics Event Tracking ---
+    if (TRACKING_ID) { // Check if GA is initialized/configured
+      if (newSelectedSection) {
+        // Event when a section is selected/opened
+        ReactGA.event({
+          category: 'NutritionPlate_Interaction', // Category for this group of events
+          action: 'Section_Opened',             // Action: a section was opened
+          label: plateData[newSelectedSection].name, // Label: the name of the section clicked (e.g., "Vegetables")
+          // You can add more parameters if needed:
+          // value: 1, // If you want to assign a numerical value
+          // nonInteraction: false, // Default is false, meaning it's an interaction
+        });
+        console.log(`GA Event: Section_Opened, Label: ${plateData[newSelectedSection].name}`);
+      } else {
+        // Event when a section is deselected/closed (by clicking it again)
+        // 'section' here refers to the section that was just closed
+        ReactGA.event({
+          category: 'NutritionPlate_Interaction',
+          action: 'Section_Closed',
+          label: plateData[section].name, // The section that was just closed
+        });
+        console.log(`GA Event: Section_Closed, Label: ${plateData[section].name}`);
+      }
+    }
+    // --- End of Google Analytics Event Tracking ---
   };
+
 
   const handleModerationSectionClick = (section: keyof typeof moderationData) => {
-    setSelectedModerationSection(section === selectedModerationSection ? null : section);
+    const newSelectedModerationSection = section === selectedModerationSection ? null : section;
+    setSelectedModerationSection(newSelectedModerationSection);
+  
+    if (TRACKING_ID) {
+      if (newSelectedModerationSection) {
+        ReactGA.event({
+          category: 'ModerationPlate_Interaction',
+          action: 'ModerationSection_Opened',
+          label: moderationData[newSelectedModerationSection].name,
+        });
+        console.log(`GA Event: ModerationSection_Opened, Label: ${moderationData[newSelectedModerationSection].name}`);
+      } else {
+        ReactGA.event({
+          category: 'ModerationPlate_Interaction',
+          action: 'ModerationSection_Closed',
+          label: moderationData[section].name,
+        });
+        console.log(`GA Event: ModerationSection_Closed, Label: ${moderationData[section].name}`);
+      }
+    }
   };
-
+  
 
   const MyPlateSVG = () => {
     // Calculate the exact centers of each quadrant
