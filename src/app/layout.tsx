@@ -2,6 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
 
+import ReactGA from 'react-ga4';
+const TRACKING_ID = "G-0ZJD8NMBE7"; // your Measurement ID
+
+ReactGA.initialize([
+  {
+    trackingId: "your GA measurement id",
+    gaOptions: {...}, // optional
+    gtagOptions: {...}, // optional
+  },
+  {
+    trackingId: "G-0ZJD8NMBE7",
+  },
+]);
+
 export const metadata: Metadata = {
   title: "Grocery Shopping Feedback",
   description: "Grocery shopping feedback and analysis application",
