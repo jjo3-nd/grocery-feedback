@@ -1,0 +1,80 @@
+{
+    "section1": [
+        {
+            "good_choice_item1": "Marketside Fresh Spinach",
+            "good_choice_reason1": "contribute to a high vegetable intake",
+            "good_choice_item2": "Act II Xtreme Butter Microwave Popcorn",
+            "good_choice_reason2": "add whole grains to your purchases",
+            "good_choice_item3": "John Morrell Diced Ham",
+            "good_choice_reason3": "contribute to the total protein intake"
+        }
+    ],
+    "section2": [
+        {
+            "user_goals": "reduce added sugar, reduce sodium, and increase vegetable intake",
+            "goal_feedback": [
+                {
+                    "feedback_text": "Great work! You made great progress with increasing vegetable intake. This was due to your purchases of Marketside Fresh Spinach because it helped you achieve almost the maximum score in the vegetable category.",
+                    "feedback_items": "Marketside Fresh Spinach"
+                },
+                {
+                    "feedback_text": "Some choices this week didn\u2019t align with your dietary goals. You purchased Dole Powder Drink Mix Variety Pack which didn\u2019t contribute to your goal of reducing added sugar because it contains high levels of added sugars.",
+                    "feedback_items": "Dole Powder Drink Mix Variety Pack"
+                },
+                {
+                    "feedback_text": "Some choices this week didn\u2019t align with your dietary goals. You purchased John Morrell Diced Ham which didn\u2019t contribute to your goal of reducing sodium because it has a high sodium content.",
+                    "feedback_items": "John Morrell Diced Ham"
+                }
+            ]
+        }
+    ],
+    "section3": [
+        {
+            "total_HEI_score": "42.6",
+            "fruits_score": "0",
+            "fruits_score_label": "Needs Improvement",
+            "fruits_explanation": "No fruits were included in your basket, leading to a low score. Fruits are rich in essential vitamins and nutrients. Aim to incorporate more whole fruits next week for more fiber and nutrients.",
+            "vegetables_score": "9.89",
+            "vegetables_score_label": "Great",
+            "vegetables_explanation": "You had a great score due to Marketside Fresh Spinach, Fresh Grape Tomato, Fresh Cucumber, and Fresh Sweet Corn on the Cob. Vegetables are great to include in your diet as they provide essential vitamins and minerals while being low in calories. Keep it up!",
+            "grains_score": "1.67",
+            "grains_score_label": "Needs Improvement",
+            "grains_explanation": "Your score was low because the only whole grain product was Act II Xtreme Butter Microwave Popcorn. Whole grains are beneficial as they lower the risk of heart disease. Consider adding more whole grain options next time!",
+            "dairy_score": "5.61",
+            "dairy_score_label": "Moderate",
+            "dairy_explanation": "Great Value Singles American Pasteurized Prepared Cheese Product contributed to a moderate dairy score. Dairy is good for bone health and provides important nutrients like calcium and vitamin D. Try including more variety in your dairy options for better scores.",
+            "protein_score": "5.08",
+            "protein_score_label": "Moderate",
+            "protein_explanation": "John Morrell Diced Ham contributed to the protein score. Protein foods provide nutrients that are vital for the health and maintenance of our body. Consider adding seafood or plant-based proteins for more variety.",
+            "fattyacids_score": "0",
+            "fattyacids_score_label": "Needs Improvement",
+            "fattyacids_explanation": "This was due to items low in beneficial fatty acids, like Great Value Buttermilk Ranch Dressing & Dip. Fatty acids, especially omega-3s, are important for heart health. Aim to include more sources of these fats next time."
+        }
+    ],
+    "section4": [
+        {
+            "refinedgrains_score": "10",
+            "refinedgrains_score_label": "Great",
+            "refinedgrains_explanation": "You had a high amount of refined grains this week, such as Great Value Butter Flavor Jumbo Biscuits. While your score was perfect, it's beneficial to switch to whole grains for better fiber content. Great choice in keeping it controlled, though!",
+            "sodium_score": "3.37",
+            "sodium_score_label": "Needs Improvement",
+            "sodium_explanation": "High sodium foods like John Morrell Diced Ham led to a lower score. Reducing sodium can help maintain healthy blood pressure levels. Aim to find lower-sodium alternatives next time.",
+            "addedsugars_score": "6.97",
+            "addedsugars_score_label": "Moderate",
+            "addedsugars_explanation": "Dole Powder Drink Mix Variety Pack had a notable amount of added sugars. High sugar intake can lead to weight gain and dental problems. Try choosing products with lower added sugars next time.",
+            "saturatedfats_score": "0",
+            "saturatedfats_score_label": "Needs Improvement",
+            "saturatedfats_explanation": "Daisy Pure and Natural Squeeze Sour Cream contributed to a high saturated fat content. Reducing saturated fats can help reduce heart disease risk. Aim for lower saturated fat options next week."
+        }
+    ],
+    "section5": [
+        {
+            "recommendation1": "Dole Powder Drink Mix Variety Pack contributed to negative added sugar scores. Next week try sparkling water with natural fruit flavor for lower added sugar intake.",
+            "food_to_substitute1": "Dole Powder Drink Mix Variety Pack",
+            "recommendation2": "John Morrell Diced Ham contributed to negative sodium scores. Next week try low-sodium turkey breast for a lower sodium alternative.",
+            "food_to_substitute2": "John Morrell Diced Ham",
+            "recommendation3": "Daisy Pure and Natural Squeeze Sour Cream contributed to high saturated fat scores. Next week try Greek yogurt as a healthier alternative to use in recipes or snacks.",
+            "food_to_substitute3": "Daisy Pure and Natural Squeeze Sour Cream"
+        }
+    ]
+}
