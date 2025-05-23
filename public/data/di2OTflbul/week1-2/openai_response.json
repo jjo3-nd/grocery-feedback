@@ -1,80 +1,80 @@
 {
     "section1": [
         {
-            "good_choice_item1": "Fresh Lemons",
-            "good_choice_reason1": "provide a rich source of vitamin C and help increase your total fruit intake",
-            "good_choice_item2": "Great Value Frozen Peas & Carrots",
-            "good_choice_reason2": "contribute essential vitamins, minerals, and fiber to your diet",
-            "good_choice_item3": "Louis Kemp Crab Delights",
-            "good_choice_reason3": "provide high-quality protein and essential nutrients from seafood"
+            "good_choice_item1": "HORMEL SQUARE TABLE Slow Simmered Beef Roast Au Jus & Savory Sauce",
+            "good_choice_reason1": "contribute positively to your total protein score",
+            "good_choice_item2": "Farm Rich Loaded Potato Skins",
+            "good_choice_reason2": "help keep your dairy score balanced",
+            "good_choice_item3": "Lay's Classic Potato Chips",
+            "good_choice_reason3": "contribute to your intake of starchy vegetables, although it might have more potential if paired with other vegetables"
         }
     ],
     "section2": [
         {
-            "user_goals": "reduce added sugar, reduce sodium, and increase vegetable intake",
+            "user_goals": "1. Reduce added sugar. 2. Reduce sodium. 3. Increase vegetable intake.",
             "goal_feedback": [
                 {
-                    "feedback_text": "You purchased Luigi's Red, White, & Blue Real Italian Ice which didn\u2019t contribute to your goal of reducing added sugar because it contains a high amount of added sugars, impacting your dietary quality.",
+                    "feedback_text": "Great work! You made great progress with increasing vegetable intake due to purchasing Lay's Classic Potato Chips and Ruffles Original Flavor Potato Snack Chips, which added vegetables, although primarily starchy ones.",
+                    "feedback_items": "Lay's Classic Potato Chips"
+                },
+                {
+                    "feedback_text": "Some choices this week didn\u2019t align with your dietary goals. You purchased Luigi's Red, White, & Blue Real Italian Ice, which didn\u2019t contribute to your goal of reducing added sugar because it contains 4.81g of added sugars.",
                     "feedback_items": "Luigi's Red, White, & Blue Real Italian Ice"
                 },
                 {
-                    "feedback_text": "You purchased Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs which didn\u2019t contribute to your goal of reducing sodium because it has a considerable amount of sodium that impacts your goal.",
-                    "feedback_items": "Louis Kemp Crab Delights"
-                },
-                {
-                    "feedback_text": "You made progress with increasing vegetable intake. This was due to your purchase of Great Value Frozen Peas & Carrots because they are packed with important nutrients like fiber and vitamins that support a healthy diet.",
-                    "feedback_items": "Great Value Frozen Peas & Carrots"
+                    "feedback_text": "Some choices this week didn\u2019t align with your dietary goals. You purchased Farm Rich Loaded Potato Skins, which didn\u2019t contribute to your goal of reducing sodium because they have a high sodium content.",
+                    "feedback_items": "Farm Rich Loaded Potato Skins"
                 }
             ]
         }
     ],
     "section3": [
         {
-            "total_HEI_score": "47.43",
-            "fruits_score": "3.83",
-            "fruits_score_label": "Moderate",
-            "fruits_explanation": "The inclusion of Fresh Lemons added to your fruit intake. However, including more whole fruits would help increase your fiber and nutrient intake. Whole fruits are essential for providing vitamins, minerals, and fiber. Try getting more varied whole fruits next time!",
-            "vegetables_score": "4.95",
+            "total_HEI_score": "30.2 / 100",
+            "fruits_score": "0",
+            "fruits_score_label": "Needs Improvement",
+            "fruits_explanation": "You did not purchase any whole or juice-based fruit products, which contributed to a low score. Including more fruits can improve dietary fiber and vital nutrient intake. Try getting more whole fruits next time!",
+            "vegetables_score": "3.19",
             "vegetables_score_label": "Moderate",
-            "vegetables_explanation": "You had a good score due to Great Value Frozen Peas & Carrots. Vegetables are great to include in your diet as they are high in essential vitamins and minerals and low in calories, supporting overall health. Keep it up!",
-            "grains_score": "1.12",
+            "vegetables_explanation": "Your purchase of Lay's Classic Potato Chips and Ruffles Original Flavor Potato Snack Chips contained starchy vegetables, which helped achieve this score. Vegetables, including dark greens and beans, are crucial for vitamins and minerals. Consider including other vegetable varieties for better balance.",
+            "grains_score": "0",
             "grains_score_label": "Needs Improvement",
-            "grains_explanation": "Kodiak Protein-Packed Cookie Butter Crunchy Granola Bars were your primary source. A higher score from more whole grains would support digestive health and provide sustained energy due to their fiber content. Grains are important sources of essential nutrients.",
-            "dairy_score": "6.33",
-            "dairy_score_label": "Great",
-            "dairy_explanation": "Great Value Whole Vitamin D Milk boosted your score in this area. Dairy products are rich in calcium and vitamin D, essential for bone health. Keep up the inclusion of dairy products to maintain bone strength!",
-            "protein_score": "9.3",
+            "grains_explanation": "You did not purchase whole grains, impacting the score negatively. Whole grains provide fiber which is beneficial for digestion. Try including whole grain products such as brown rice or whole wheat bread.",
+            "dairy_score": "4.05",
+            "dairy_score_label": "Moderate",
+            "dairy_explanation": "Farm Rich Loaded Potato Skins contributed some dairy content. Dairy provides calcium essential for bone health. Including a variety of dairy like yogurt or milk can enhance your score.",
+            "protein_score": "5",
             "protein_score_label": "Great",
-            "protein_explanation": "Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs were excellent sources of protein. Protein foods support tissue repair and muscle building. Maintaining your protein intake from a variety of sources is beneficial.",
-            "fattyacids_score": "0",
+            "protein_explanation": "Excellent score! HORMEL SQUARE TABLE Slow Simmered Beef Roast Au Jus & Savory Sauce positively impacted this category. Protein is necessary for muscle maintenance. Continue incorporating a diverse protein range, including plant-based ones.",
+            "fattyacids_score": "0.38",
             "fattyacids_score_label": "Needs Improvement",
-            "fattyacids_explanation": "Fresh Hass Avocados contributed to this score, but more variety in healthy fats like omega-3s from seafood or nuts could improve your heart health. Fatty acids, particularly omega-3s, can help reduce heart disease risk."
+            "fattyacids_explanation": "Your score was low due to limited sources of healthy fatty acids. Fatty acids, especially omega-3s, are beneficial for heart health. Incorporating fatty fish like salmon can improve this score."
         }
     ],
     "section4": [
         {
-            "refinedgrains_score": "9.57",
-            "refinedgrains_score_label": "Great",
-            "refinedgrains_explanation": "These were primarily from Bibigo Cooked Sticky White Rice. Choosing more whole grains next time would be beneficial, as refined grains are often lower in fiber and nutrients.",
-            "sodium_score": "7.01",
+            "refinedgrains_score": "6.62",
+            "refinedgrains_score_label": "Moderate",
+            "refinedgrains_explanation": "The inclusion of refined grains like Stouffer's Salisbury Steak Individual Frozen Meal led to an average score. Consider balancing with whole grains as refined grains can spike blood sugar due to low fiber.",
+            "sodium_score": "6.63",
             "sodium_score_label": "Moderate",
-            "sodium_explanation": "Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs contributed to sodium intake. Reducing sodium is important for maintaining healthy blood pressure levels. Consider lower-sodium options.",
-            "addedsugars_score": "5.32",
-            "addedsugars_score_label": "Moderate",
-            "addedsugars_explanation": "Luigi's Red, White, & Blue Real Italian Ice contributed to this score. Minimize added sugars for better dental health and a reduced risk of weight gain.",
+            "sodium_explanation": "Farm Rich Loaded Potato Skins contributed high sodium, leading to a moderated score. High sodium can affect blood pressure negatively. Keep an eye on sodium levels and consider lower sodium alternatives.",
+            "addedsugars_score": "4.33",
+            "addedsugars_score_label": "Needs Improvement",
+            "addedsugars_explanation": "Luigi's Red, White, & Blue Real Italian Ice contributed to the low score for added sugars. Excess sugar can lead to weight gain and dental issues. Choose snacks with lesser added sugar content.",
             "saturatedfats_score": "0",
             "saturatedfats_score_label": "Needs Improvement",
-            "saturatedfats_explanation": "Great Value Finely Shredded Mild Cheddar Cheese contributed to higher saturated fat intake. Saturated fats can raise cholesterol levels, increasing heart disease risk. Try to choose foods lower in saturated fats."
+            "saturatedfats_explanation": "The purchase of 93% Lean / 7% Fat Lean Ground Beef resulted in a low saturated fat score. Saturated fats can contribute to heart disease. Opt for leaner or plant-based protein alternatives."
         }
     ],
     "section5": [
         {
-            "recommendation1": "For next week: Luigi's Red, White, & Blue Real Italian Ice contributed to a negative Added Sugars score. Next week try choosing fresh fruit or unsweetened applesauce as these options are naturally sweet and contain no added sugars.",
+            "recommendation1": "Luigi's Red, White, & Blue Real Italian Ice contributed to negative Added Sugar score. Next week try fresh fruit or unsweetened applesauce to strengthen the score.",
             "food_to_substitute1": "Luigi's Red, White, & Blue Real Italian Ice",
-            "recommendation2": "For next week: Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs contributed to a negative Sodium score. Next week try using fresh seafood like salmon or cod, which are lower in sodium and rich in omega-3 fatty acids.",
-            "food_to_substitute2": "Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs",
-            "recommendation3": "For next week: Fresh Hass Avocados contributed to a negative Fatty Acids score. Consider adding foods like walnuts or flaxseeds to naturally increase omega-3 fatty acids.",
-            "food_to_substitute3": "Fresh Hass Avocados"
+            "recommendation2": "Farm Rich Loaded Potato Skins contributed to negative Sodium score. Next week try baked sweet potatoes or low-sodium vegetable chips to strengthen the score.",
+            "food_to_substitute2": "Farm Rich Loaded Potato Skins",
+            "recommendation3": "Stouffer's Salisbury Steak Individual Frozen Meal contributed to negative Refined Grains score. Next week try quinoa or whole grain pasta meals to strengthen the score.",
+            "food_to_substitute3": "Stouffer's Salisbury Steak Individual Frozen Meal"
         }
     ]
 }
