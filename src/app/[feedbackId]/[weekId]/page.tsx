@@ -32,7 +32,7 @@ export default function WeeklyFeedbackPage() {
             rel="noopener noreferrer"
             onClick={handleReportLinkClick}
           >
-            View Week 1-2 Report
+            View Last Week's Report
           </Link>
         </div>
       )}
