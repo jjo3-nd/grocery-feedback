@@ -341,6 +341,23 @@ const NutritionFeedback = ({ feedbackId, weekId }: NutritionFeedbackProps) => {
     }
     // --- End of Google Analytics Event Tracking ---
   };
+
+  const handleFNSLinkClick = () => {
+    if (TRACKING_ID) {
+      const pageIdentifier = window.location.pathname; // Or `/${feedbackId}/${weekId}`;
+      ReactGA.event({
+        category: 'ExternalLink_Click',
+        action: 'Clicked_FNS_HEI_Scores_Link',
+        label: `FNS HEI Scores Link on ${pageIdentifier}`, // Provides context of which page the link was on
+        // For outbound links, you might also consider using a custom 'link_url' parameter
+        // or relying on GA4's automatic outbound link tracking if enabled.
+        // However, sending a specific event like this gives you more control.
+      });
+      console.log(`GA Event: Clicked_FNS_HEI_Scores_Link, Label: FNS HEI Scores Link on ${pageIdentifier}`);
+    }
+    // Since it's an outbound link opening in a new tab (target="_blank"),
+    // you don't usually need to manually delay navigation.
+  };
   
 
   const MyPlateSVG = () => {
@@ -818,6 +835,7 @@ const ModerationSVG = () => {
               className="text-blue-500 hover:underline" 
               target="_blank" 
               rel="noopener noreferrer"
+              onClick={handleFNSLinkClick}
             >here</a>
           </div>
           <MyPlateSVG />
