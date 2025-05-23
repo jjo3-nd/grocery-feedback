@@ -2,27 +2,27 @@
     "section1": [
         {
             "good_choice_item1": "Fresh Strawberries",
-            "good_choice_reason1": "are a rich source of vitamins, particularly Vitamin C, and high in dietary fiber, which are great for overall health",
+            "good_choice_reason1": "are high in vitamins and fiber and contribute to your fruit goals",
             "good_choice_item2": "Fresh Romaine Lettuce Hearts",
-            "good_choice_reason2": "are a great source of dietary fiber, which helps in maintaining good digestive health",
-            "good_choice_item3": "Great Value 2% Reduced Fat Milk",
-            "good_choice_reason3": "provides essential nutrients including calcium and vitamin D for bone health"
+            "good_choice_reason2": "add a variety of nutrients to your meals and support your goal to increase vegetable intake",
+            "good_choice_item3": "Great Value Extra Butter Flavored Microwave Popcorn",
+            "good_choice_reason3": "contains whole grains, contributing to your fiber intake"
         }
     ],
     "section2": [
         {
-            "user_goals": "reducing added sugar, reducing sodium, and increasing vegetable intake",
+            "user_goals": "reduce added sugar, reduce sodium, and increase vegetable intake.",
             "goal_feedback": [
                 {
-                    "feedback_text": "Great work! You made great progress with increasing vegetable intake. This was due to your purchase of Fresh Romaine Lettuce Hearts and other fresh vegetables, which are vital in enhancing your nutrient intake and supporting overall health.",
+                    "feedback_text": "Great work! You made great progress with increasing vegetable intake. This was due to your purchase of Fresh Romaine Lettuce Hearts because they are rich in vitamins and add variety to your meals.",
                     "feedback_items": "Fresh Romaine Lettuce Hearts"
                 },
                 {
-                    "feedback_text": "Some choices this week didn\u2019t align with your goal of reducing added sugar. You purchased Nature Nate's Honey, which contributed to your added sugar intake because honey, despite being natural, is still a source of added sugars.",
+                    "feedback_text": "Some choices this week didn\u2019t align with your dietary goals. You purchased Nature Nate's Honey which didn\u2019t contribute to your goal of reducing added sugar because it is a high-sugar product.",
                     "feedback_items": "Nature Nate's Honey"
                 },
                 {
-                    "feedback_text": "Some choices this week didn\u2019t align with your goal of reducing sodium. You purchased Fresh Celery Stalk, which naturally contains more sodium compared to other vegetables, contributing to your sodium intake.",
+                    "feedback_text": "Some choices this week didn\u2019t align with your goal of reducing sodium. Fresh Celery Stalk contributes to sodium intake despite being a vegetable.",
                     "feedback_items": "Fresh Celery Stalk"
                 }
             ]
@@ -33,47 +33,47 @@
             "total_HEI_score": "53.28/100",
             "fruits_score": "10/10",
             "fruits_score_label": "Great",
-            "fruits_explanation": "Fresh Strawberries contributed to this excellent score by providing vitamins and fiber. Fruits are vital for providing vitamins, minerals, and fiber. Keep enjoying fresh fruits!",
+            "fruits_explanation": "Including Fresh Strawberries in your shopping shows a wide range of nutrient-rich fruits that help provide essential vitamins and fiber. Fruits are vital for health as they provide essential nutrients that reduce the risk of many illnesses. Keep it up!",
             "vegetables_score": "8.45/10",
             "vegetables_score_label": "Great",
-            "vegetables_explanation": "Fresh Romaine Lettuce Hearts contributed highly to this score. Vegetables supply essential vitamins and minerals while being low in calories, promoting overall health. Keep it up!",
+            "vegetables_explanation": "Your score benefited from Fresh Romaine Lettuce Hearts and Fresh Whole White Onions. Vegetables supply essential vitamins and minerals aiding in overall health. You're doing great by including various types of vegetables in your meals!",
             "grains_score": "0.78/10",
             "grains_score_label": "Needs Improvement",
-            "grains_explanation": "Your score is low due to low whole grain consumption. Whole grains offer more nutrients and fiber than refined grains. Consider including whole grains like brown rice or whole-wheat pasta.",
+            "grains_explanation": "A lower score resulted from minimal whole grains like Great Value Extra Butter Flavored Microwave Popcorn. Whole grains are better for their fiber content and nutrient density. They help reduce cholesterol levels and lower the risk of heart disease, stroke, obesity, and type 2 diabetes. Consider adding more whole grain options.",
             "dairy_score": "4.87/10",
             "dairy_score_label": "Moderate",
-            "dairy_explanation": "Great Value 2% Reduced Fat Milk contributed to the score. Including more dairy can help provide calcium and vitamin D, important for bone health. Try adding more yogurt or cheese.",
+            "dairy_explanation": "You included Great Value 2% Reduced Fat Milk, which gives a good calcium contribution for healthy bones. Dairy provides essential nutrients such as calcium and vitamin D. Keep going for moderate consumption.",
             "protein_score": "7.45/10",
             "protein_score_label": "Great",
-            "protein_explanation": "Great Value Chicken Smoked Sausage boosted this score. Protein is necessary for muscle repair and growth. Including lean proteins or beans can further enhance your score.",
+            "protein_explanation": "Your score was bolstered by Great Value Chicken Smoked Sausage. Protein is mandatory for body tissue repair and growth and balances energy levels. Keep incorporating a variety of protein sources.",
             "fattyacids_score": "0/10",
             "fattyacids_score_label": "Needs Improvement",
-            "fattyacids_explanation": "The score is low because Freshness Guaranteed Chunky Guacamole wasn't enough to impact your fatty acid score significantly. Fatty acids, like omega-3s, improve heart health by reducing cardiovascular disease risk."
+            "fattyacids_explanation": "Freshness Guaranteed Chunky Guacamole contributed, but your basket was lacking in healthy fatty acids like omega-3s, beneficial for heart health. Consider foods like salmon or nuts for better scores."
         }
     ],
     "section4": [
         {
             "refinedgrains_score": "10/10",
             "refinedgrains_score_label": "Great",
-            "refinedgrains_explanation": "Your choice of Mission Super Soft White Corn Tortillas contributed to the moderate refined grain consumption, which is good. Continue this balance to benefit from controlled grain intake.",
+            "refinedgrains_explanation": "You managed to incorporate fewer refined grains, maintained by Mission Super Soft White Corn Tortillas. Refined grains can lead to increased calorie intake without providing essential fiber and can lead to blood sugar spikes. Keep sticking with whole grain products over refined ones!",
             "sodium_score": "1.72/10",
             "sodium_score_label": "Needs Improvement",
-            "sodium_explanation": "Fresh Celery Stalk contributed to a higher sodium awareness. High sodium can increase blood pressure risk. Aim to opt for low-sodium products when possible.",
+            "sodium_explanation": "Fresh Celery Stalk contributes to the sodium level of your shopping. High sodium intake leads to hypertension and heart conditions. Aim to reduce processed foods that are high in sodium.",
             "addedsugars_score": "10/10",
             "addedsugars_score_label": "Great",
-            "addedsugars_explanation": "Despite the presence of Nature Nate's Honey, added sugars were kept minimal. Minimizing added sugars aids in reducing weight gain risk and protects dental health. Keep it up!",
+            "addedsugars_explanation": "Although Nature Nate's Honey, your overall basket maintained a well-managed level. This aids in managing weight and reducing dental problems.",
             "saturatedfats_score": "0/10",
             "saturatedfats_score_label": "Needs Improvement",
-            "saturatedfats_explanation": "Great Value Sweet Cream Unsalted Butter impacted your score negatively as too much butter can elevate bad cholesterol. Consider opting for unsaturated fats instead."
+            "saturatedfats_explanation": "Great Value Sweet Cream Unsalted Butter added to saturated fats in your diet. High saturated fat intake can lead to heart disease and other complications. Consider avocados and olive oil as alternatives."
         }
     ],
     "section5": [
         {
-            "recommendation1": "Nature Nate's Honey contributed to negative added sugar score. Next week try substituting honey with naturally sweet fruits like berries or apples.",
+            "recommendation1": "Nature Nate's Honey contributed to negative Added Sugar. Next week, try fresh fruits or low-sugar alternatives.",
             "food_to_substitute1": "Nature Nate's Honey",
-            "recommendation2": "Fresh Celery Stalk contributed to increased sodium. Next week try choosing lower sodium alternatives like spinach or kale for your salads.",
+            "recommendation2": "Fresh Celery Stalk contributed to negative Sodium. Next week, try incorporating more herbs and spices for flavor and minimize added salts.",
             "food_to_substitute2": "Fresh Celery Stalk",
-            "recommendation3": "Great Value Sweet Cream Unsalted Butter contributed to increased saturated fats. Next week try using oils like olive or canola oil instead, which are lower in saturated fats.",
+            "recommendation3": "Great Value Sweet Cream Unsalted Butter contributed to negative Saturated Fat. Next week, try avocados or olive oil for healthier fat options.",
             "food_to_substitute3": "Great Value Sweet Cream Unsalted Butter"
         }
     ]

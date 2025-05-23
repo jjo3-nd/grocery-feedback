@@ -1,0 +1,80 @@
+{
+    "section1": [
+        {
+            "good_choice_item1": "Fresh Lemons",
+            "good_choice_reason1": "provide a rich source of vitamin C and help increase your total fruit intake",
+            "good_choice_item2": "Great Value Frozen Peas & Carrots",
+            "good_choice_reason2": "contribute essential vitamins, minerals, and fiber to your diet",
+            "good_choice_item3": "Louis Kemp Crab Delights",
+            "good_choice_reason3": "provide high-quality protein and essential nutrients from seafood"
+        }
+    ],
+    "section2": [
+        {
+            "user_goals": "reduce added sugar, reduce sodium, and increase vegetable intake",
+            "goal_feedback": [
+                {
+                    "feedback_text": "You purchased Luigi's Red, White, & Blue Real Italian Ice which didn\u2019t contribute to your goal of reducing added sugar because it contains a high amount of added sugars, impacting your dietary quality.",
+                    "feedback_items": "Luigi's Red, White, & Blue Real Italian Ice"
+                },
+                {
+                    "feedback_text": "You purchased Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs which didn\u2019t contribute to your goal of reducing sodium because it has a considerable amount of sodium that impacts your goal.",
+                    "feedback_items": "Louis Kemp Crab Delights"
+                },
+                {
+                    "feedback_text": "You made progress with increasing vegetable intake. This was due to your purchase of Great Value Frozen Peas & Carrots because they are packed with important nutrients like fiber and vitamins that support a healthy diet.",
+                    "feedback_items": "Great Value Frozen Peas & Carrots"
+                }
+            ]
+        }
+    ],
+    "section3": [
+        {
+            "total_HEI_score": "47.43",
+            "fruits_score": "3.83",
+            "fruits_score_label": "Moderate",
+            "fruits_explanation": "The inclusion of Fresh Lemons added to your fruit intake. However, including more whole fruits would help increase your fiber and nutrient intake. Whole fruits are essential for providing vitamins, minerals, and fiber. Try getting more varied whole fruits next time!",
+            "vegetables_score": "4.95",
+            "vegetables_score_label": "Moderate",
+            "vegetables_explanation": "You had a good score due to Great Value Frozen Peas & Carrots. Vegetables are great to include in your diet as they are high in essential vitamins and minerals and low in calories, supporting overall health. Keep it up!",
+            "grains_score": "1.12",
+            "grains_score_label": "Needs Improvement",
+            "grains_explanation": "Kodiak Protein-Packed Cookie Butter Crunchy Granola Bars were your primary source. A higher score from more whole grains would support digestive health and provide sustained energy due to their fiber content. Grains are important sources of essential nutrients.",
+            "dairy_score": "6.33",
+            "dairy_score_label": "Great",
+            "dairy_explanation": "Great Value Whole Vitamin D Milk boosted your score in this area. Dairy products are rich in calcium and vitamin D, essential for bone health. Keep up the inclusion of dairy products to maintain bone strength!",
+            "protein_score": "9.3",
+            "protein_score_label": "Great",
+            "protein_explanation": "Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs were excellent sources of protein. Protein foods support tissue repair and muscle building. Maintaining your protein intake from a variety of sources is beneficial.",
+            "fattyacids_score": "0",
+            "fattyacids_score_label": "Needs Improvement",
+            "fattyacids_explanation": "Fresh Hass Avocados contributed to this score, but more variety in healthy fats like omega-3s from seafood or nuts could improve your heart health. Fatty acids, particularly omega-3s, can help reduce heart disease risk."
+        }
+    ],
+    "section4": [
+        {
+            "refinedgrains_score": "9.57",
+            "refinedgrains_score_label": "Great",
+            "refinedgrains_explanation": "These were primarily from Bibigo Cooked Sticky White Rice. Choosing more whole grains next time would be beneficial, as refined grains are often lower in fiber and nutrients.",
+            "sodium_score": "7.01",
+            "sodium_score_label": "Moderate",
+            "sodium_explanation": "Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs contributed to sodium intake. Reducing sodium is important for maintaining healthy blood pressure levels. Consider lower-sodium options.",
+            "addedsugars_score": "5.32",
+            "addedsugars_score_label": "Moderate",
+            "addedsugars_explanation": "Luigi's Red, White, & Blue Real Italian Ice contributed to this score. Minimize added sugars for better dental health and a reduced risk of weight gain.",
+            "saturatedfats_score": "0",
+            "saturatedfats_score_label": "Needs Improvement",
+            "saturatedfats_explanation": "Great Value Finely Shredded Mild Cheddar Cheese contributed to higher saturated fat intake. Saturated fats can raise cholesterol levels, increasing heart disease risk. Try to choose foods lower in saturated fats."
+        }
+    ],
+    "section5": [
+        {
+            "recommendation1": "For next week: Luigi's Red, White, & Blue Real Italian Ice contributed to a negative Added Sugars score. Next week try choosing fresh fruit or unsweetened applesauce as these options are naturally sweet and contain no added sugars.",
+            "food_to_substitute1": "Luigi's Red, White, & Blue Real Italian Ice",
+            "recommendation2": "For next week: Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs contributed to a negative Sodium score. Next week try using fresh seafood like salmon or cod, which are lower in sodium and rich in omega-3 fatty acids.",
+            "food_to_substitute2": "Louis Kemp Crab Delights Fresh Wild Alaska Pollock Imitation Crab Legs",
+            "recommendation3": "For next week: Fresh Hass Avocados contributed to a negative Fatty Acids score. Consider adding foods like walnuts or flaxseeds to naturally increase omega-3 fatty acids.",
+            "food_to_substitute3": "Fresh Hass Avocados"
+        }
+    ]
+}
