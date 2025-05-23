@@ -89,6 +89,7 @@ const NutritionFeedback = ({ feedbackId, weekId }: NutritionFeedbackProps) => {
       protein_explanation: string;
       grains_score: string;
       grains_score_label: string;
+      grains_explanation: string;
       dairy_score: string;
       dairy_score_label: string;
       dairy_explanation: string;
@@ -198,7 +199,7 @@ const NutritionFeedback = ({ feedbackId, weekId }: NutritionFeedbackProps) => {
       name:'Grains',
       score: jsonData.section3[0].grains_score,
       status: jsonData.section3[0].grains_score_label,
-      details: jsonData.section3[0].protein_explanation,
+      details: jsonData.section3[0].grains_explanation,
       icon: '/grains.png',
       color: '#E67323',
       iconPosition: { x: 300, y: 300 },
