@@ -775,7 +775,7 @@ const ModerationSVG = () => {
             <div className="flex-1 text-center">
               <h1 className={`${bungee.className} text-2xl`} 
                   style={{ color: headingColors.title }}>
-                Grocery Feedback: {weekId === 'week1-2' ? 'April 28 - May 11' : weekId}
+                Grocery Feedback: {weekId === 'week1-2' ? 'June 9-June 15' : weekId}
               </h1>
               <div className="text-center mt-4 mb-1 text-gray-500 text-sm max-w-2xl mx-auto">
                 This is based on your Walmart shopping only 
