@@ -49,13 +49,13 @@ const Upload = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
-            <Image 
+            {/* <Image 
               src="/FINs.png" 
               alt="Food Logo" 
               width={64} 
               height={64} 
               className="h-8 w-auto"
-            />
+            /> */}
             <h1 className={`${bungee.className} text-2xl text-blue-900`}>
               Upload Receipt
             </h1>
