@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 interface FolderStructure {
   folders: string[];
@@ -47,6 +48,15 @@ export default function Home() {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Grocery Feedback Report</h1>
+      
+      <div className="mb-6">
+        <Link
+          href="/receipt"
+          className="inline-block bg-blue-800 text-blue-50 px-6 py-3 rounded-lg hover:bg-blue-400 transition-colors font-semibold"
+        >
+          Upload Receipt
+        </Link>
+      </div>
     </div>
   );
 }
