@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Bungee, Open_Sans } from 'next/font/google';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
 const bungee = Bungee({
@@ -23,6 +21,9 @@ interface Product {
   includeInScore: boolean;
 }
 
+const INSTACART_ITEMS_STORAGE_KEY = 'instacart-receipt-items';
+const INSTACART_RECEIPT_ID_STORAGE_KEY = 'instacart-receipt-id';
+
 const ReceiptExtraction = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,10 +32,18 @@ const ReceiptExtraction = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const id = searchParams.get('receiptId') || '';
+    const queryReceiptId = searchParams.get('receiptId') || '';
+    const storedReceiptId =
+      typeof window !== 'undefined'
+        ? window.sessionStorage.getItem(INSTACART_RECEIPT_ID_STORAGE_KEY) || ''
+        : '';
+    const id = queryReceiptId || storedReceiptId;
     setReceiptId(id);
     
     if (id) {
+      if (typeof window !== 'undefined') {
+        window.sessionStorage.setItem(INSTACART_RECEIPT_ID_STORAGE_KEY, id);
+      }
       fetchExtractedData(id);
     } else {
       setIsLoading(false);
@@ -83,6 +92,26 @@ const ReceiptExtraction = () => {
   const includedProducts = products.filter((product) => product.includeInScore);
   const totalPrice = products.reduce((sum, product) => sum + product.price, 0);
   const includedTotalPrice = includedProducts.reduce((sum, product) => sum + product.price, 0);
+
+  const handleContinueToInstacart = () => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const itemsForInstacart = includedProducts.map((product) => ({
+      name: product.name,
+      quantity: product.quantity || 1,
+    }));
+
+    window.sessionStorage.setItem(INSTACART_ITEMS_STORAGE_KEY, JSON.stringify(itemsForInstacart));
+    if (receiptId) {
+      window.sessionStorage.setItem(INSTACART_RECEIPT_ID_STORAGE_KEY, receiptId);
+      window.location.href = `/instacart?receiptId=${encodeURIComponent(receiptId)}`;
+      return;
+    }
+
+    window.location.href = '/instacart';
+  };
 
   return (
     <div className={`min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 ${openSans.className}`}>
@@ -195,12 +224,13 @@ const ReceiptExtraction = () => {
                 >
                   Upload Another Receipt
                 </button>
-                <Link
-                  href="/"
+                <button
+                  type="button"
+                  onClick={handleContinueToInstacart}
                   className="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-center"
                 >
-                  Continue to Report
-                </Link>
+                  Find Nearby Stores
+                </button>
               </div>
 
               {/* Info Message */}
